@@ -8,15 +8,23 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "gatsby develop",
+    "start": "gatsby clean && gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
     "gatsby": "^4.19.0",
+    "gatsby-plugin-image": "^2.19.0",
+    "gatsby-plugin-netlify": "^5.0.0",
+    "gatsby-plugin-sass": "^5.19.0",
+    "gatsby-plugin-sharp": "^4.19.0",
+    "gatsby-source-google-spreadsheets": "^3.0.8",
+    "gatsby-transformer-sharp": "^4.19.0",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "sass": "^1.53.0",
+    "uikit": "^3.15.1"
   },
   "devDependencies": {
     "prettier": "^2.7.1"
