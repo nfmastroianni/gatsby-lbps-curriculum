@@ -21,6 +21,7 @@
     "gatsby-plugin-sharp": "^4.19.0",
     "gatsby-source-google-spreadsheets": "^3.0.8",
     "gatsby-transformer-sharp": "^4.19.0",
+    "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "sass": "^1.53.0",

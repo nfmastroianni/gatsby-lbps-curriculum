@@ -11,7 +11,7 @@ const keys = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEYS)
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: 'LBPS Curriculum Department',
+    title: 'Curriculum & Instruction',
   },
   plugins: [
     `gatsby-plugin-sass`,

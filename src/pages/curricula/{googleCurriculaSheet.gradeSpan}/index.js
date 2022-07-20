@@ -3,7 +3,7 @@ import * as React from 'react'
 
 export default function SpanIndex({
   data: {
-    allGoogleSheet1Sheet: { nodes },
+    allGoogleCurriculaSheet: { nodes },
   },
   path,
   pageContext: { gradeSpan },
@@ -19,7 +19,7 @@ export default function SpanIndex({
 
 export const data = graphql`
   query SpanQuery($gradeSpan: String) {
-    allGoogleSheet1Sheet(filter: { gradeSpan: { eq: $gradeSpan } }) {
+    allGoogleCurriculaSheet(filter: { gradeSpan: { eq: $gradeSpan } }) {
       nodes {
         contentArea
         gradeSpan

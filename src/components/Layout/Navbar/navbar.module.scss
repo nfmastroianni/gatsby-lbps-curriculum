@@ -1,0 +1,33 @@
+@import '../../../styles/_variables';
+.nav {
+  padding: 1rem 0 1rem 1rem;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  h1 {
+    line-height: 2rem;
+    overflow-y: auto;
+    font-size: 1.3rem;
+  }
+  @media screen and (min-width: $breakpoint-small) {
+    padding: 1rem 0 1rem 2rem;
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  @media screen and (min-width: $breakpoint-medium) {
+    padding: 1rem 0 1rem 3rem;
+    h1 {
+      font-size: 2rem;
+      min-width: 700px;
+    }
+  }
+  @media screen and (min-width: $breakpoint-large) {
+    padding: 1rem 0 1rem 4rem;
+    h1 {
+      font-size: 2rem;
+      min-width: 900px;
+    }
+  }
+}
+.white-text {
+  color: white;
+}
