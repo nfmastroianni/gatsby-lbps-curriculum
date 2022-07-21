@@ -10,6 +10,13 @@ const getUniqueGradeSpans = arr => {
   return uniqueSpans
 }
 
+const handleToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  })
+}
+
 const toggleVisible = setState => {
   const scrolled = document.documentElement.scrollTop
   if (scrolled > 400) {
@@ -19,4 +26,4 @@ const toggleVisible = setState => {
   }
 }
 
-export { getUniqueGradeSpans, toggleVisible }
+export { getUniqueGradeSpans, handleToTop, toggleVisible }
