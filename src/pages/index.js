@@ -11,7 +11,6 @@ const Home = ({
   },
   path,
 }) => {
-  console.log(path)
   return (
     <>
       <Layout title={title} path={path}>
