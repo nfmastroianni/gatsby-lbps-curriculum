@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  @apply scroll-smooth;
+  @apply motion-safe:scroll-auto;
+}
+
+.active-page {
+  @apply border-b border-dotted;
+}
