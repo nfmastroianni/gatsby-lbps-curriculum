@@ -1,18 +1,29 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
-import { HiMenu } from 'react-icons/hi'
+import { HiChevronRight, HiMenu, HiX } from 'react-icons/hi'
+import { mainMenu } from '../../../../data'
 
 const Navbar = ({ title, path }) => {
-  const [isOpen, setIsOpen] = useState(false)
-
+  const [isOpen, setIsOpen] = React.useState(false)
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.position = 'fixed'
+      document.body.style.top = `${window.scrollY}px`
+    } else {
+      const scrollY = document.body.style.top
+      document.body.style.position = ''
+      document.body.style.top = ''
+      window.scrollTo(0, parseInt(scrollY || '0') * -1)
+    }
+  }, [isOpen])
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
   return (
     <>
-      <nav className="min-h-[75px] shadow-sm flex justify-between items-center px-3 sm:px-6 lg:px-10 xl:px-12">
+      <nav className="min-h-[75px] shadow-sm flex justify-between items-center px-3 sm:px-6 lg:px-10 xl:px-12 sm:py-2 md:py-4 lg:py-6 text-emerald-900">
         {/* NAVBAR LEFT - MENU */}
         <div className="flex items-center">
           <HiMenu
@@ -23,7 +34,7 @@ const Navbar = ({ title, path }) => {
             tabIndex={0}
           />
           <span
-            className="invisible sm:visible cursor-pointer"
+            className="hidden sm:inline cursor-pointer"
             onClick={toggleMenu}
             onKeyDown={toggleMenu}
             role="button"
@@ -33,19 +44,23 @@ const Navbar = ({ title, path }) => {
           </span>
         </div>
         {/* NAVBAR CENTER - TITLE */}
-        <div className="">
-          <h1 className="text-center prose-h1:">{title}</h1>
+        <div className="text-center">
+          <h1 className=" text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold ">
+            {title}
+          </h1>
           <p className="prose prose-sm">Long Branch Public Schools</p>
         </div>
         {/* NAVBAR RIGHT - LOGO */}
-        <div className="">
-          <StaticImage
-            src="../../../images/lbps_logo.png"
-            className="w-12 h-12"
-            alt=""
-            width={48}
-            height={48}
-          />
+        <div>
+          <Link to="/">
+            <StaticImage
+              src="../../../images/lbps_logo.png"
+              className="w-12 h-12"
+              alt=""
+              width={48}
+              height={48}
+            />
+          </Link>
         </div>
       </nav>
       <div
@@ -59,11 +74,69 @@ const Navbar = ({ title, path }) => {
       >
         <span className="sr-only">close menu</span>
       </div>
+      {/* OFF-CANVAS / SIDE DRAWER MENU */}
       <aside
-        className={`absolute top-0 z-10 h-screen bg-emerald-900 transition ease-in-out duration-500 w-[320px] ${
-          isOpen ? ' -translate-x-[50px]' : ' -translate-x-[320px]'
+        className={`absolute top-0 z-10 h-screen  bg-gradient-to-b from-emerald-800 via-emerald-900 to-slate-900 transition ease-in-out duration-500 w-[260px] md:w-[400px] flex flex-col justify-center items-center text-white ${
+          isOpen
+            ? ' -translate-x-[0px]'
+            : ' -translate-x-[260px] md:-translate-x-[400px]'
         }`}
-      ></aside>
+      >
+        <button onClick={toggleMenu}>
+          <HiX className="absolute top-4 right-4 text-white w-6 h-6" />
+        </button>
+        <StaticImage
+          src="../../../images/curriculum_logo.png"
+          width={75}
+          height={75}
+          layout="constrained"
+          placeholder="tracedSVG"
+          alt=""
+        />
+        <ul className="">
+          {mainMenu.map(item => {
+            return (
+              <li key={item.id} className="my-8">
+                {item.type === 'internal' ? (
+                  <Link
+                    to={item.url}
+                    className="text-2xl"
+                    activeClassName="active-page"
+                  >
+                    {item.linkText}
+                  </Link>
+                ) : (
+                  <a href={item.url} className="text-2xl">
+                    {item.linkText}
+                  </a>
+                )}
+                {item.subMenu && (
+                  <ul className="pl-4">
+                    {item.subMenu.map(subItem => {
+                      return (
+                        <li key={subItem.id} className="my-4 flex items-center">
+                          <HiChevronRight className="w-4 h-4" />
+                          {subItem.type === 'internal' ? (
+                            <Link
+                              to={subItem.url}
+                              className="text-2xl"
+                              activeClassName="active-page"
+                            >
+                              {subItem.linkText}
+                            </Link>
+                          ) : (
+                            <a href={subItem.url}>{subItem.linkText}</a>
+                          )}
+                        </li>
+                      )
+                    })}
+                  </ul>
+                )}
+              </li>
+            )
+          })}
+        </ul>
+      </aside>
     </>
   )
 }
