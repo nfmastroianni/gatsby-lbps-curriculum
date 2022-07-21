@@ -17,18 +17,22 @@
     "gatsby": "^4.19.0",
     "gatsby-plugin-image": "^2.19.0",
     "gatsby-plugin-netlify": "^5.0.0",
-    "gatsby-plugin-sass": "^5.19.0",
     "gatsby-plugin-sharp": "^4.19.0",
+    "gatsby-source-filesystem": "^4.19.0",
     "gatsby-source-google-spreadsheets": "^3.0.8",
     "gatsby-transformer-sharp": "^4.19.0",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "sass": "^1.53.0",
-    "uikit": "^3.15.1"
+    "react-icons": "^4.4.0"
   },
   "devDependencies": {
-    "prettier": "^2.7.1"
+    "@tailwindcss/typography": "^0.5.4",
+    "autoprefixer": "^10.4.7",
+    "gatsby-plugin-postcss": "^5.19.0",
+    "postcss": "^8.4.14",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.1.6"
   },
   "repository": {
     "type": "git",

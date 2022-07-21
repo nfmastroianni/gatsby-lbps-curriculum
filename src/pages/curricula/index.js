@@ -1,15 +1,20 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import Layout from '../../components/Layout'
 import { getUniqueGradeSpans } from '../../../utils'
 
-const CurriculaIndex = ({ data }) => {
+const CurriculaIndex = ({ data, path }) => {
   const {
     allGoogleCurriculaSheet: { nodes },
   } = data
   const spans = getUniqueGradeSpans(nodes)
-  console.log(spans)
-  return <div>{JSON.stringify(spans)}</div>
+  console.log(path)
+  return (
+    <Layout title={'Curricula'} path={path}>
+      <div>{JSON.stringify(spans)}</div>
+    </Layout>
+  )
 }
 // PROP-TYPES
 CurriculaIndex.propTypes = {

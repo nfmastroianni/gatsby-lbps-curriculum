@@ -14,7 +14,17 @@ module.exports = {
     title: 'Curriculum & Instruction',
   },
   plugins: [
-    `gatsby-plugin-sass`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-postcss`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'images',
+        path: path.join(__dirname, `src`, `images`),
+      },
+      __key: 'images',
+    },
     {
       resolve: `gatsby-source-google-spreadsheets`,
       options: {

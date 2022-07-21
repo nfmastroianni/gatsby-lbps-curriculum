@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby'
 import * as React from 'react'
+import Layout from '../../../components/Layout'
 
 export default function SpanIndex({
   data: {
@@ -11,9 +12,9 @@ export default function SpanIndex({
   // JS
   console.log(gradeSpan)
   return (
-    <>
+    <Layout title={`${gradeSpan} Curricula`} path={path}>
       <h1>SPAN INDEX</h1>
-    </>
+    </Layout>
   )
 }
 

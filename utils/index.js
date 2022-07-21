@@ -1,3 +1,8 @@
+/**
+ * It takes an array of objects, and returns an array of unique values from the property `gradeSpan` of
+ * each object
+ * @returns An array of unique gradeSpans
+ */
 const getUniqueGradeSpans = arr => {
   let allSpans = []
   arr.forEach(span => allSpans.push(span.gradeSpan))
@@ -5,4 +10,13 @@ const getUniqueGradeSpans = arr => {
   return uniqueSpans
 }
 
-export { getUniqueGradeSpans }
+const toggleVisible = setState => {
+  const scrolled = document.documentElement.scrollTop
+  if (scrolled > 400) {
+    setState(true)
+  } else if (scrolled <= 400) {
+    setState(false)
+  }
+}
+
+export { getUniqueGradeSpans, toggleVisible }
