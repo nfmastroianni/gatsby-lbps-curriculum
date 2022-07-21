@@ -13,19 +13,19 @@ export const mainMenu = [
     subMenu: [
       {
         linkText: 'K-5 Curricula',
-        url: '/curricula/k-5',
+        url: '/curricula/k-5/',
         type: 'internal',
         id: 'c1',
       },
       {
         linkText: '6-8 Curricula',
-        url: '/curricula/6-8',
+        url: '/curricula/6-8/',
         type: 'internal',
         id: 'c2',
       },
       {
         linkText: '9-12 Curricula',
-        url: '/curricula/9-12',
+        url: '/curricula/9-12/',
         type: 'internal',
         id: 'c3',
       },
