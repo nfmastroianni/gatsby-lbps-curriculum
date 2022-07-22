@@ -2,6 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import Layout from '../components/Layout'
+import Hero from '../components/Hero'
+import Section from '../components/Section'
 
 const Home = ({
   data: {
@@ -14,59 +16,9 @@ const Home = ({
   return (
     <>
       <Layout title={title} path={path}>
-        <h2 className="">
-          <span>HOME PAGE H1 - {title}</span>
-        </h2>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit
-          voluptatem iure blanditiis quia nemo? Accusantium, vero quae optio
-          incidunt, deleniti in illo corrupti tempore mollitia eius voluptatibus
-          similique laboriosam nulla. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Deleniti, aliquam explicabo. Nulla maxime,
-          necessitatibus odio consequuntur vel praesentium deleniti consectetur
-          repellendus ea, veniam pariatur illum explicabo cum distinctio iusto
-          assumenda!
-        </p>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit
-          voluptatem iure blanditiis quia nemo? Accusantium, vero quae optio
-          incidunt, deleniti in illo corrupti tempore mollitia eius voluptatibus
-          similique laboriosam nulla. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Deleniti, aliquam explicabo. Nulla maxime,
-          necessitatibus odio consequuntur vel praesentium deleniti consectetur
-          repellendus ea, veniam pariatur illum explicabo cum distinctio iusto
-          assumenda!
-        </p>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit
-          voluptatem iure blanditiis quia nemo? Accusantium, vero quae optio
-          incidunt, deleniti in illo corrupti tempore mollitia eius voluptatibus
-          similique laboriosam nulla. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Deleniti, aliquam explicabo. Nulla maxime,
-          necessitatibus odio consequuntur vel praesentium deleniti consectetur
-          repellendus ea, veniam pariatur illum explicabo cum distinctio iusto
-          assumenda!
-        </p>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit
-          voluptatem iure blanditiis quia nemo? Accusantium, vero quae optio
-          incidunt, deleniti in illo corrupti tempore mollitia eius voluptatibus
-          similique laboriosam nulla. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Deleniti, aliquam explicabo. Nulla maxime,
-          necessitatibus odio consequuntur vel praesentium deleniti consectetur
-          repellendus ea, veniam pariatur illum explicabo cum distinctio iusto
-          assumenda!
-        </p>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit
-          voluptatem iure blanditiis quia nemo? Accusantium, vero quae optio
-          incidunt, deleniti in illo corrupti tempore mollitia eius voluptatibus
-          similique laboriosam nulla. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Deleniti, aliquam explicabo. Nulla maxime,
-          necessitatibus odio consequuntur vel praesentium deleniti consectetur
-          repellendus ea, veniam pariatur illum explicabo cum distinctio iusto
-          assumenda!
-        </p>
+        <Hero />
+        <Section headerText="What We Teach"></Section>
+        <Section headerText="How We Teach"></Section>
       </Layout>
     </>
   )
