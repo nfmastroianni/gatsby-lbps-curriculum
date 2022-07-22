@@ -10,11 +10,13 @@ const Navbar = ({ title, path }) => {
   React.useEffect(() => {
     if (isOpen) {
       document.body.style.position = 'fixed'
+      document.body.style.width = '100%'
       document.body.style.top = `${window.scrollY}px`
     } else {
       const scrollY = document.body.style.top
       document.body.style.position = ''
       document.body.style.top = ''
+      document.body.style.width = ''
       window.scrollTo(0, parseInt(scrollY || '0') * -1)
     }
   }, [isOpen])
@@ -23,44 +25,46 @@ const Navbar = ({ title, path }) => {
   }
   return (
     <>
-      <nav className="min-h-[75px] shadow-sm flex justify-between items-center px-3 sm:px-6 lg:px-10 xl:px-12 sm:py-2 md:py-4 lg:py-6 text-emerald-900">
-        {/* NAVBAR LEFT - MENU */}
-        <div className="flex items-center">
-          <HiMenu
-            className="w-6 h-6 sm:w-7 sm:h-7 mr-3 cursor-pointer"
-            onClick={toggleMenu}
-            onKeyDown={toggleMenu}
-            role="button"
-            tabIndex={0}
-          />
-          <span
-            className="hidden sm:inline cursor-pointer"
-            onClick={toggleMenu}
-            onKeyDown={toggleMenu}
-            role="button"
-            tabIndex={0}
-          >
-            Menu
-          </span>
-        </div>
-        {/* NAVBAR CENTER - TITLE */}
-        <div className="text-center">
-          <h1 className=" text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold ">
-            {title}
-          </h1>
-          <p className="prose prose-sm">Long Branch Public Schools</p>
-        </div>
-        {/* NAVBAR RIGHT - LOGO */}
-        <div>
-          <Link to="/">
-            <StaticImage
-              src="../../../images/lbps_logo.png"
-              className="w-12 h-12"
-              alt=""
-              width={48}
-              height={48}
+      <nav className="min-h-[75px] shadow-sm  text-emerald-900">
+        <div className="px-3 sm:px-6 lg:px-10 xl:px-12 py-3 sm:py-4 md:py-5 lg:py-6 flex justify-between items-center  max-w-screen-2xl mx-auto">
+          {/* NAVBAR LEFT - MENU */}
+          <div className="flex items-center">
+            <HiMenu
+              className="w-6 h-6 sm:w-7 sm:h-7 mr-3 cursor-pointer"
+              onClick={toggleMenu}
+              onKeyDown={toggleMenu}
+              role="button"
+              tabIndex={0}
             />
-          </Link>
+            <span
+              className="hidden sm:inline cursor-pointer"
+              onClick={toggleMenu}
+              onKeyDown={toggleMenu}
+              role="button"
+              tabIndex={0}
+            >
+              Menu
+            </span>
+          </div>
+          {/* NAVBAR CENTER - TITLE */}
+          <div className="text-center">
+            <h1 className=" text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold ">
+              {title}
+            </h1>
+            <p className="prose prose-sm">Long Branch Public Schools</p>
+          </div>
+          {/* NAVBAR RIGHT - LOGO */}
+          <div>
+            <Link to="/">
+              <StaticImage
+                src="../../../images/lbps_logo.png"
+                className="w-12 h-12"
+                alt=""
+                width={48}
+                height={48}
+              />
+            </Link>
+          </div>
         </div>
       </nav>
       <div
@@ -83,12 +87,12 @@ const Navbar = ({ title, path }) => {
         }`}
       >
         <button onClick={toggleMenu}>
-          <HiX className="absolute top-4 right-4 text-white w-6 h-6" />
+          <HiX className="absolute top-4 right-4 text-slate-300 w-6 h-6" />
         </button>
         <StaticImage
           src="../../../images/curriculum_logo.png"
-          width={75}
-          height={75}
+          width={120}
+          height={120}
           layout="constrained"
           placeholder="tracedSVG"
           alt=""
