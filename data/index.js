@@ -1,4 +1,33 @@
-export const mainMenu = [
+const departments = [
+  {
+    id: 'bilingualesl',
+    title: 'Bilingual / ESL, & World Languages',
+    curriculaUrl: '',
+    departmentUrl: '',
+    description:
+      'Bilingual / ESL: Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae facere dolor commodi ea eum natus debitis! Facilis, voluptatum ipsum! Cupiditate dolore, ipsa a expedita sit ex placeat assumenda suscipit minima!',
+    image: 'bilingual_logo',
+  },
+  {
+    id: 'physicaleducation',
+    title: 'Health & Physical Education',
+    curriculaUrl: '',
+    departmentUrl: '',
+    description:
+      'Health & Physical Education: Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae facere dolor commodi ea eum natus debitis! Facilis, voluptatum ipsum! Cupiditate dolore, ipsa a expedita sit ex placeat assumenda suscipit minima!',
+    image: 'pe_logo',
+  },
+  {
+    id: 'specialeducation',
+    title: 'Special Education',
+    curriculaUrl: '',
+    departmentUrl: '',
+    description:
+      'Special Education: Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae facere dolor commodi ea eum natus debitis! Facilis, voluptatum ipsum! Cupiditate dolore, ipsa a expedita sit ex placeat assumenda suscipit minima!',
+    image: 'sped_logo',
+  },
+]
+const mainMenu = [
   {
     linkText: 'Curriculum Home Page',
     url: '/',
@@ -38,3 +67,4 @@ export const mainMenu = [
     id: 1,
   },
 ]
+export { departments, mainMenu }
