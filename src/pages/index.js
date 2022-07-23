@@ -25,6 +25,15 @@ const Home = ({
       <Layout title={title} path={path}>
         <Hero />
         <Section headerText="What We Teach">
+          <h3 className="text-2xl md:text-3xl font-light text-center my-2 md:my-4 lg:my-6">
+            Departments
+          </h3>
+          <p className="prose md:prose-lg mx-auto my-4 md:my-6 lg:my-8">
+            Check out some of the departments here at Long Branch Public
+            Schools. Each department has at least one supervisor and a master
+            teacher for each building. These professionals help ensure best
+            practices are followed when using their curriculum.
+          </p>
           <dl className="divide-y">
             {departments.map(({ description, id, gatsbyImageData, title }) => {
               return (
