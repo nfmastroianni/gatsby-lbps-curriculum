@@ -30,7 +30,7 @@ const Hero = () => {
             instruction (<em>how we teach</em>).
           </p>
         </div>
-        <div className="md:col-span-2 row-span-1 pt-2 mb-2 md:mb-0 self-end">
+        <div className="md:col-span-2 row-span-1 p-2 mb-2 md:mb-0 self-end">
           <h3 className="text-center font-semibold text-emerald-900 text-2xl">
             Nicole Esposito <br />
             Assistant Superintendent <br /> of Curriculum &amp; Instruction

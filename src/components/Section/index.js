@@ -5,7 +5,7 @@ export default function Section({ children, headerText, id }) {
   return (
     <section id={id}>
       {headerText && <SectionHeader headerText={headerText} />}
-      <div className="mx-auto py-2 px-4">{children}</div>
+      <div className="mx-auto py-2 px-4 max-w-screen-2xl">{children}</div>
     </section>
   )
 }
