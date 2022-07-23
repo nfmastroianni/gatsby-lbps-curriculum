@@ -1,7 +1,6 @@
 import * as React from 'react'
 
 export default function SectionHeader({ bg, headerText }) {
-  console.log(bg)
   return (
     <header
       className={`${
