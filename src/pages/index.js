@@ -4,9 +4,10 @@ import PropTypes from 'prop-types'
 import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import Section from '../components/Section'
-import { departments } from '../../data'
+import { departments, practices } from '../../data'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { getDepartmentImages } from '../../utils'
+import { HiCheck } from 'react-icons/hi'
 
 const Home = ({
   data: {
@@ -49,7 +50,32 @@ const Home = ({
             })}
           </dl>
         </Section>
-        <Section headerText="How We Teach"></Section>
+        <Section headerText="How We Teach">
+          <h3 className="text-2xl md:text-3xl font-light text-center my-2 md:my-4 lg:my-6">
+            Practices
+          </h3>
+          <p className="prose md:prose-lg mx-auto my-4 md:my-6 lg:my-8">
+            Below you will find some of the instructional practices that are
+            foundational to the experience of students here in Long Branch
+            Public Schools. Your child's teacher should be able to answer any
+            questions you may have about these practices.
+          </p>
+          <dl className="divide-y max-w-screen-lg mx-auto">
+            {practices.map(({ id, title, description, url, type }) => {
+              return (
+                <div className="grid md:grid-cols-2">
+                  <dt className="text-xl md:text-2xl text-emerald-900 justify-self-center self-center mt-6">
+                    <HiCheck className="w-6 h-6 text-emerald-900 inline mr-2" />
+                    {title}
+                  </dt>
+                  <dd className="prose md:prose-lg lg:prose-xl my-4">
+                    {description}
+                  </dd>
+                </div>
+              )
+            })}
+          </dl>
+        </Section>
       </Layout>
     </>
   )
@@ -62,8 +88,6 @@ export function Head({
     },
   },
   location,
-  pageContext,
-  params,
 }) {
   return (
     <>
@@ -92,7 +116,7 @@ export const query = graphql`
         childImageSharp {
           gatsbyImageData(
             layout: CONSTRAINED
-            placeholder: TRACED_SVG
+            placeholder: BLURRED
             width: 180
             height: 180
           )
