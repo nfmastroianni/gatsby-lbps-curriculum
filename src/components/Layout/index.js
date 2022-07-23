@@ -1,6 +1,5 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
 import Navbar from './Navbar'
 import { handleToTop, toggleVisible } from '../../../utils'
 import { HiChevronUp } from 'react-icons/hi'
@@ -22,9 +21,18 @@ const Layout = ({ children, title, path }) => {
   return (
     <div className="flex flex-col min-h-screen space-between">
       <ul id="nav-access" className="relative">
-        <li className="bg-purple-700">
-          <Link
-            to="#main-content"
+        <li className="">
+          <button
+            onClick={e => {
+              console.log('SKIP LINK CLICKED')
+              e.preventDefault()
+              const mainContent = document.querySelector('#main-content')
+              if (mainContent) {
+                mainContent.tabIndex = -1
+                mainContent.focus()
+                setTimeout(() => mainContent.removeAttribute('tabindex'), 1000)
+              }
+            }}
             className="h-10 flex justify-center items-center absolute z-50 -top-20 sm:left-1/4 text-xl text-white w-full sm:w-1/2 text-center bg-emerald-700 bg-opacity-95 transform focus:translate-y-20 transition-all duration-500 ease-in-out"
           >
             Skip to main content
@@ -32,7 +40,7 @@ const Layout = ({ children, title, path }) => {
               Return
               <BsArrowReturnLeft className="w-3 h-3 inline text-white ml-1" />
             </span>
-          </Link>
+          </button>
         </li>
       </ul>
       <Navbar title={title} path={path} />
