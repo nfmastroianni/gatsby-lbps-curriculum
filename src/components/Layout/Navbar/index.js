@@ -62,6 +62,7 @@ const Navbar = ({ title, path }) => {
                 alt=""
                 width={48}
                 height={48}
+                placeholder="blurred"
               />
             </Link>
           </div>
