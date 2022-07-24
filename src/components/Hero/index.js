@@ -15,13 +15,13 @@ const Hero = () => {
             height={300}
           />
         </div>
-        <div className="md:col-span-3 row-span-1 text-center self-center">
-          <h2 className="text-xl md:text-2xl lg:text-3xl my-3 text-emerald-900 font-semibold">
+        <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl md:col-span-3 row-span-1 text-center self-center">
+          <h2 className="text-xl md:text-2xl lg:text-3xl my-3 text-emerald-900">
             What We Teach &amp; How We Teach It
           </h2>
         </div>
         <div className="md:col-span-3 row-span-1">
-          <p className="prose md:prose-xl lg:prose-2xl px-2 md:px-3 lg:px-4">
+          <p className="prose md:prose-lg lg:prose-xl xl:prose-2xl px-2 md:px-3 lg:px-4">
             We have an important mission here at Long Branch Public Schools. We
             strive to meet and exceed the standards set forth by the State of
             New Jersey. In order to accomplish this, we continuously develop and
