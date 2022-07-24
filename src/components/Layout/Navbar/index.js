@@ -5,7 +5,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import { HiChevronRight, HiMenu, HiX } from 'react-icons/hi'
 import { mainMenu } from '../../../../data'
 
-const Navbar = ({ title, path }) => {
+const Navbar = ({ siteTitle, path }) => {
   const [isOpen, setIsOpen] = React.useState(false)
   React.useEffect(() => {
     if (isOpen) {
@@ -49,7 +49,7 @@ const Navbar = ({ title, path }) => {
           {/* NAVBAR CENTER - TITLE */}
           <div className="text-center">
             <h1 className=" text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold ">
-              {title}
+              {siteTitle}
             </h1>
             <p className="prose prose-sm">Long Branch Public Schools</p>
           </div>
@@ -147,7 +147,7 @@ const Navbar = ({ title, path }) => {
 }
 // PROP-TYPES
 Navbar.propTypes = {
-  title: PropTypes.string.isRequired,
+  siteTitle: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
 }
 // EXPORTS

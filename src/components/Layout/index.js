@@ -6,7 +6,7 @@ import { HiChevronUp } from 'react-icons/hi'
 import { BsArrowReturnLeft } from 'react-icons/bs'
 import Footer from './Footer'
 
-const Layout = ({ children, title, path }) => {
+const Layout = ({ children, siteTitle, path }) => {
   const [isScrolled, setIsScrolled] = React.useState(false)
 
   React.useEffect(() => {
@@ -43,7 +43,7 @@ const Layout = ({ children, title, path }) => {
           </button>
         </li>
       </ul>
-      <Navbar title={title} path={path} />
+      <Navbar siteTitle={siteTitle} path={path} />
 
       <main id="main-content" className="">
         {children}
@@ -61,7 +61,7 @@ const Layout = ({ children, title, path }) => {
 }
 
 Layout.propTypes = {
-  title: PropTypes.string.isRequired,
+  siteTitle: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
 }
 

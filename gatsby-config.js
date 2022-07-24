@@ -11,7 +11,7 @@ const keys = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEYS)
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: 'Curriculum & Instruction',
+    siteTitle: 'Curriculum & Instruction',
   },
   plugins: [
     `gatsby-plugin-image`,

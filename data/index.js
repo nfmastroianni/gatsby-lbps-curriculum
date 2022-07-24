@@ -3,7 +3,10 @@ const departments = [
     id: 'bilingualesl',
     title: 'Bilingual / ESL, & World Languages',
     curriculaUrl: '',
-    departmentUrl: '',
+    curriculaUrlType: '',
+    departmentUrl:
+      'https://sites.google.com/longbranch.k12.nj.us/office-of-bilingual-education/home',
+    departmentUrlType: 'external',
     description:
       'Bilingual / ESL: Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae facere dolor commodi ea eum natus debitis! Facilis, voluptatum ipsum! Cupiditate dolore, ipsa a expedita sit ex placeat assumenda suscipit minima!',
     image: 'bilingual_logo',
@@ -12,21 +15,47 @@ const departments = [
     id: 'physicaleducation',
     title: 'Health & Physical Education',
     curriculaUrl: '',
-    departmentUrl: '',
+    curriculaUrlType: '',
+    departmentUrl: 'https://www.longbranch.k12.nj.us/Domain/466',
+    departmentUrlType: 'external',
     description:
       'Health & Physical Education: Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae facere dolor commodi ea eum natus debitis! Facilis, voluptatum ipsum! Cupiditate dolore, ipsa a expedita sit ex placeat assumenda suscipit minima!',
     image: 'pe_logo',
   },
   {
     id: 'specialeducation',
-    title: 'Special Education',
+    title: 'Special Education & Services',
     curriculaUrl: '',
-    departmentUrl: '',
+    curriculaUrlType: '',
+    departmentUrl: 'https://www.longbranch.k12.nj.us/Domain/89',
+    departmentUrlType: 'external',
     description:
       'Special Education: Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae facere dolor commodi ea eum natus debitis! Facilis, voluptatum ipsum! Cupiditate dolore, ipsa a expedita sit ex placeat assumenda suscipit minima!',
     image: 'sped_logo',
   },
 ]
+
+// INSTRUCTIONAL PRACTICES
+const practices = [
+  {
+    id: 'practice1',
+    title: 'Progress Monitoring',
+    description:
+      'An important part of insruction, progress monitoring (also known as formative assessment) provides teachers and administrators with important data.  More description needed...',
+    url: 'https://www.readingrockets.org/article/student-progress-monitoring-what-means-your-child',
+    type: 'external',
+  },
+  {
+    id: 'practice2',
+    title: 'Readers & Writers Workshop',
+    description:
+      'COPIED (CHANGE) The Reading and Writing Workshop Model is a structured time for the teaching and learning of literacy instruction. The Reading Workshop is an uninterrupted time for students to read, think and converse about authentic literature on a daily basis.',
+    url: '',
+    type: '',
+  },
+]
+
+// MAIN MENU ITEMS
 const mainMenu = [
   {
     linkText: 'Curriculum Home Page',
@@ -67,4 +96,4 @@ const mainMenu = [
     id: 1,
   },
 ]
-export { departments, mainMenu }
+export { departments, practices, mainMenu }
