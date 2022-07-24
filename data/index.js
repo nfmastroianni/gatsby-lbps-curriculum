@@ -4,8 +4,9 @@ const departments = [
     title: 'Bilingual / ESL, & World Languages',
     curriculaUrl: '',
     curriculaUrlType: '',
-    departmentUrl: '',
-    departmentUrlType: '',
+    departmentUrl:
+      'https://sites.google.com/longbranch.k12.nj.us/office-of-bilingual-education/home',
+    departmentUrlType: 'external',
     description:
       'Bilingual / ESL: Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae facere dolor commodi ea eum natus debitis! Facilis, voluptatum ipsum! Cupiditate dolore, ipsa a expedita sit ex placeat assumenda suscipit minima!',
     image: 'bilingual_logo',
@@ -15,19 +16,19 @@ const departments = [
     title: 'Health & Physical Education',
     curriculaUrl: '',
     curriculaUrlType: '',
-    departmentUrl: '',
-    departmentUrlType: '',
+    departmentUrl: 'https://www.longbranch.k12.nj.us/Domain/466',
+    departmentUrlType: 'external',
     description:
       'Health & Physical Education: Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae facere dolor commodi ea eum natus debitis! Facilis, voluptatum ipsum! Cupiditate dolore, ipsa a expedita sit ex placeat assumenda suscipit minima!',
     image: 'pe_logo',
   },
   {
     id: 'specialeducation',
-    title: 'Special Education',
+    title: 'Special Education & Services',
     curriculaUrl: '',
     curriculaUrlType: '',
-    departmentUrl: '',
-    departmentUrlType: '',
+    departmentUrl: 'https://www.longbranch.k12.nj.us/Domain/89',
+    departmentUrlType: 'external',
     description:
       'Special Education: Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae facere dolor commodi ea eum natus debitis! Facilis, voluptatum ipsum! Cupiditate dolore, ipsa a expedita sit ex placeat assumenda suscipit minima!',
     image: 'sped_logo',
@@ -41,8 +42,8 @@ const practices = [
     title: 'Progress Monitoring',
     description:
       'An important part of insruction, progress monitoring (also known as formative assessment) provides teachers and administrators with important data.  More description needed...',
-    url: '',
-    type: '',
+    url: 'https://www.readingrockets.org/article/student-progress-monitoring-what-means-your-child',
+    type: 'external',
   },
   {
     id: 'practice2',
