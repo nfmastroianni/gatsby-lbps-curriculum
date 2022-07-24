@@ -47,8 +47,8 @@ const Navbar = ({ siteTitle, path }) => {
             </span>
           </div>
           {/* NAVBAR CENTER - TITLE */}
-          <div className="text-center">
-            <h1 className=" text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold ">
+          <div className="absolute left-1/2 transform -translate-x-1/2 text-center">
+            <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold ">
               {siteTitle}
             </h1>
             <p className="prose prose-sm">Long Branch Public Schools</p>
