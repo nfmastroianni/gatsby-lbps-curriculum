@@ -25,11 +25,16 @@ const CurriculaIndex = ({
       <Section>
         <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl divide-y mx-auto">
           <h2 className="text-center text-emerald-900">About Our Curricula</h2>
-          <p className="py-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-            aperiam voluptas commodi similique quibusdam. Perspiciatis, nobis
-            quos? Eveniet mollitia reiciendis, voluptatum voluptas dolorem,
-            architecto, beatae eaque iste alias animi asperiores.
+          <p className="py-4 prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto">
+            In order to ensure our students receive a rigorous, our curricula
+            are developed using the "
+            <a href="https://files.ascd.org/staticfiles/ascd/pdf/siteASCD/publications/UbD_WhitePaper0312.pdf">
+              Understanding By Design
+            </a>
+            " framework. This framework helps enhance student learning and
+            facilitates instruction by staring with the end result in mind.
+            Below you will find information on the primary, middle, and
+            secondary school levels.
           </p>
         </div>
       </Section>
