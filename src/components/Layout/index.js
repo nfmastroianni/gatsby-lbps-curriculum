@@ -24,7 +24,6 @@ const Layout = ({ children, siteTitle, path }) => {
         <li className="">
           <button
             onClick={e => {
-              console.log('SKIP LINK CLICKED')
               e.preventDefault()
               const mainContent = document.querySelector('#main-content')
               if (mainContent) {
