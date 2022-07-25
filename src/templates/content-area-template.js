@@ -6,6 +6,8 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Breadcrumb from '../components/Breadcrumb'
 import Section from '../components/Section'
+import { FaFilePdf, FaRegCalendarAlt } from 'react-icons/fa'
+import { HiChevronRight } from 'react-icons/hi'
 
 const ContentArea = ({
   data: {
@@ -21,9 +23,46 @@ const ContentArea = ({
     <Layout siteTitle={siteTitle} path={path}>
       <Breadcrumb path={path} />
       <Section>
-        <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-semibold border-b py-4 max-w-screen-sm mx-auto">
+        <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-semibold border-b py-4  mb-4">
           {gradeSpan} • {contentArea}
         </h2>
+        <div className=" max-w-md">
+          {areas.map(({ title, guide, id, calendar }) => {
+            return (
+              <details key={id}>
+                <summary>
+                  <HiChevronRight className="inline w-6 h-6" />
+                  {title}
+                </summary>
+                {guide || calendar ? (
+                  <ul>
+                    {guide && (
+                      <li>
+                        <a href={guide}>
+                          <FaFilePdf className="curriculum-icon w-8 h-8" />
+                          <span>Curriculum guide</span>
+                        </a>
+                      </li>
+                    )}
+                    {calendar && (
+                      <li>
+                        <a href={calendar}>
+                          <FaRegCalendarAlt className="curriculum-icon w-8 h-8" />
+                          Pacing calendar
+                        </a>
+                      </li>
+                    )}
+                  </ul>
+                ) : (
+                  <p>
+                    No curriculum documents are available for this course at
+                    this time. Please check back later.
+                  </p>
+                )}
+              </details>
+            )
+          })}
+        </div>
       </Section>
     </Layout>
   )
