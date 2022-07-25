@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply scroll-smooth;
+  @apply motion-safe:scroll-auto;
+}
+
+details {
+  @apply max-w-sm mx-auto my-6;
+}
+
+details > summary {
+  @apply text-xl flex items-center p-4 bg-emerald-900 text-white list-none rounded-t cursor-pointer;
+}
+
+details > ul {
+  @apply mx-4 divide-y;
+}
+
+details > ul > li {
+  @apply p-4 text-emerald-900 text-lg;
+}
+
+details[open] > ul > li > svg {
+  @apply mr-4;
+}
+
+details > summary > svg {
+  @apply transition duration-200 ease-in-out rotate-0;
+}
+
+details[open] > summary > svg {
+  @apply transition duration-200 ease-in-out rotate-90;
+}
+
+.active-page {
+  @apply border-b border-dotted;
+}
+
+.curriculum-icon {
+  @apply inline m-4;
+}
