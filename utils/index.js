@@ -51,6 +51,13 @@ const getBreadcrumbs = path => {
   }
 }
 
+const getUniqueContentAreas = arr => {
+  let allContentAreas = []
+  arr.forEach(area => allContentAreas.push(area.subject))
+  let uniqueAreas = [...new Set(allContentAreas)]
+  return uniqueAreas
+}
+
 /**
  * It takes an array of objects, and returns an array of unique values from the property `gradeSpan` of
  * each object
@@ -70,6 +77,17 @@ const handleToTop = () => {
   })
 }
 
+const slugify = text => {
+  return text
+    .toString() // Cast to string (optional)
+    .normalize('NFKD') // The normalize() using NFKD method returns the Unicode Normalization Form of a given string.
+    .toLowerCase() // Convert the string to lowercase letters
+    .trim() // Remove whitespace from both sides of a string (optional)
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/[^\w-]+/g, '') // Remove all non-word chars
+    .replace(/--+/g, '-') // Replace multiple - with single -
+}
+
 const toggleVisible = setState => {
   const scrolled = document.documentElement.scrollTop
   if (scrolled > 400) {
@@ -82,7 +100,9 @@ const toggleVisible = setState => {
 export {
   getDepartmentImages,
   getBreadcrumbs,
+  getUniqueContentAreas,
   getUniqueGradeSpans,
   handleToTop,
+  slugify,
   toggleVisible,
 }
