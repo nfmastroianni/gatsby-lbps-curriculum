@@ -10,6 +10,7 @@ import { getUniqueGradeSpans } from '../../../utils'
 import { HiBookOpen } from 'react-icons/hi'
 // import data
 import { gradeSpans } from '../../../data'
+import Seo from '../../components/Seo'
 
 const CurriculaIndex = ({
   data: {
@@ -81,12 +82,34 @@ CurriculaIndex.propTypes = {
   }).isRequired,
 }
 // EXPORTS
+export const Head = ({
+  data: {
+    site: { siteMetadata },
+  },
+  location,
+}) => {
+  siteMetadata.siteUrl += location.pathname
+  console.log(siteMetadata.siteUrl)
+  return (
+    <Seo {...siteMetadata}>
+      <title>Curricula Grade Spans | {siteMetadata.siteTitle}</title>
+    </Seo>
+  )
+}
 export default CurriculaIndex
 export const data = graphql`
   query CurriculaQuery {
     allGoogleCurriculaSheet(filter: { published: { eq: true } }) {
       nodes {
         gradeSpan
+      }
+    }
+    site {
+      siteMetadata {
+        siteTitle
+        siteUrl
+        siteDescription
+        siteImage
       }
     }
   }

@@ -8,6 +8,7 @@ import Breadcrumb from '../components/Breadcrumb'
 import Section from '../components/Section'
 import { FaFilePdf, FaRegCalendarAlt } from 'react-icons/fa'
 import { HiChevronRight } from 'react-icons/hi'
+import Seo from '../components/Seo'
 
 const ContentArea = ({
   data: {
@@ -73,6 +74,26 @@ ContentArea.propTypes = {
   path: PropTypes.string.isRequired,
 }
 
+export const Head = ({
+  data: {
+    site: { siteMetadata },
+  },
+  pageContext: { gradeSpan, contentArea },
+  location,
+}) => {
+  siteMetadata.siteUrl += location.pathname
+  return (
+    <Seo {...siteMetadata}>
+      <title>{`${contentArea} | ${gradeSpan} | ${siteMetadata.siteTitle}`}</title>
+      <meta
+        id="og-title"
+        property="og:title"
+        content={`${contentArea} | ${gradeSpan} | ${siteMetadata.siteTitle}`}
+      />
+    </Seo>
+  )
+}
+
 export default ContentArea
 
 export const data = graphql`
@@ -80,6 +101,9 @@ export const data = graphql`
     site {
       siteMetadata {
         siteTitle
+        siteDescription
+        siteUrl
+        siteImage
       }
     }
     allGoogleCurriculaSheet(
