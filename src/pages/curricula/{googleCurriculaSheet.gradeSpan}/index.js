@@ -4,6 +4,7 @@ import { graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 // import components
 import Layout from '../../../components/Layout'
+import Seo from '../../../components/Seo'
 import Breadcrumb from '../../../components/Breadcrumb'
 import Section from '../../../components/Section'
 import { getUniqueContentAreas, slugify } from '../../../../utils'
@@ -39,7 +40,7 @@ const SpanIndex = ({
             return (
               <li key={subject} className="">
                 <Link
-                  to={slugify(subject)}
+                  to={slugify(subject) + '/'}
                   className="block px-4 py-2 text-white bg-emerald-900 rounded border transition duration-300 ease-in-out hover:bg-transparent hover:border border-emerald-900 hover:text-emerald-900"
                 >
                   {subject}
@@ -65,6 +66,21 @@ SpanIndex.propTypes = {
   }).isRequired,
 }
 
+export const Head = ({ data, pageContext, location }) => {
+  const {
+    site: { siteMetadata },
+  } = data
+  const { gradeSpan } = pageContext
+  const { pathname } = location
+  siteMetadata.siteUrl += pathname
+
+  return (
+    <Seo {...siteMetadata} pageTitle={`${gradeSpan} Subjects`}>
+      <title>{`${gradeSpan} Subjects | ${siteMetadata.siteTitle}`}</title>
+    </Seo>
+  )
+}
+
 export default SpanIndex
 
 export const data = graphql`
@@ -79,6 +95,9 @@ export const data = graphql`
     site {
       siteMetadata {
         siteTitle
+        siteDescription
+        siteUrl
+        siteImage
       }
     }
   }

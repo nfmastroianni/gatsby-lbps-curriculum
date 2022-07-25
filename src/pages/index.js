@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import Layout from '../components/Layout'
+import Seo from '../components/Seo'
 import Hero from '../components/Hero'
 import Section from '../components/Section'
 import { departments, practices } from '../../data'
@@ -134,16 +135,14 @@ const Home = ({
 
 export function Head({
   data: {
-    site: {
-      siteMetadata: { siteTitle },
-    },
+    site: { siteMetadata },
   },
-  location,
 }) {
+  const { siteTitle } = siteMetadata
   return (
-    <>
-      <title>{siteTitle}</title>
-    </>
+    <Seo {...siteMetadata} pageTitle="Home">
+      <title>{`Home | ${siteTitle}`}</title>
+    </Seo>
   )
 }
 
@@ -170,6 +169,8 @@ export const query = graphql`
     site {
       siteMetadata {
         siteTitle
+        siteDescription
+        siteUrl
       }
     }
     allFile {
