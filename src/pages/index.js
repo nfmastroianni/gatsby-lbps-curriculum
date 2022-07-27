@@ -137,10 +137,12 @@ export function Head({
   data: {
     site: { siteMetadata },
   },
+  location,
 }) {
   const { siteTitle } = siteMetadata
+  const { pathname } = location
   return (
-    <Seo {...siteMetadata} pageTitle="Home">
+    <Seo {...siteMetadata} pageTitle="Home" pathname={pathname}>
       <title>{`Home | ${siteTitle}`}</title>
     </Seo>
   )
@@ -152,6 +154,9 @@ Home.propTypes = {
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({
         siteTitle: PropTypes.string.isRequired,
+        siteDescription: PropTypes.string.isRequired,
+        siteUrl: PropTypes.string.isRequired,
+        siteImage: PropTypes.string.isRequired,
       }),
     }).isRequired,
     allFile: PropTypes.shape({
@@ -171,6 +176,7 @@ export const query = graphql`
         siteTitle
         siteDescription
         siteUrl
+        siteImage
       }
     }
     allFile {

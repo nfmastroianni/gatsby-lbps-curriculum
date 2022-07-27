@@ -22,7 +22,7 @@ const ContentArea = ({
 }) => {
   return (
     <Layout siteTitle={siteTitle} path={path}>
-      <Breadcrumb path={path} />
+      <Breadcrumb path={path} contentArea={contentArea} />
       <Section>
         <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-semibold border-b py-4  mb-4">
           {gradeSpan} • {contentArea}
@@ -81,9 +81,13 @@ export const Head = ({
   pageContext: { gradeSpan, contentArea },
   location,
 }) => {
-  siteMetadata.siteUrl += location.pathname
+  const { pathname } = location
   return (
-    <Seo {...siteMetadata}>
+    <Seo
+      {...siteMetadata}
+      pageTitle={`${contentArea} | ${gradeSpan}`}
+      pathname={pathname}
+    >
       <title>{`${contentArea} | ${gradeSpan} | ${siteMetadata.siteTitle}`}</title>
       <meta
         id="og-title"
