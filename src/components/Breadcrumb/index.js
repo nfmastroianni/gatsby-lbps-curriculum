@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import { HiChevronRight } from 'react-icons/hi'
 import { getBreadcrumbs } from '../../../utils'
 
-const Breadcrumb = ({ path }) => {
+const Breadcrumb = ({ path, contentArea }) => {
   const breadcrumbs = getBreadcrumbs(path)
   return (
     <>
@@ -20,7 +20,9 @@ const Breadcrumb = ({ path }) => {
             return (
               <li key={crumb} className="hover:text-emerald-700">
                 <Link to={`/${crumb}/`} className="capitalize">
-                  {breadcrumbs.pieces[i]}
+                  {i + 1 === breadcrumbs.crumbs.length && contentArea
+                    ? contentArea
+                    : breadcrumbs.pieces[i]}
                 </Link>
                 {i < breadcrumbs.crumbs.length - 1 && (
                   <HiChevronRight className="inline mx-1 sm:mx-4 w-4 h-4 text-emerald-900" />
@@ -36,6 +38,7 @@ const Breadcrumb = ({ path }) => {
 
 Breadcrumb.propTypes = {
   path: PropTypes.string.isRequired,
+  contentArea: PropTypes.string,
 }
 
 export default Breadcrumb

@@ -40,7 +40,9 @@ const SpanIndex = ({
             return (
               <li key={subject} className="">
                 <Link
-                  to={slugify(subject) + '/'}
+                  to={`/curricula/${gradeSpan.toLowerCase()}/${slugify(
+                    subject
+                  )}/`}
                   className="block px-4 py-2 text-white bg-emerald-900 rounded border transition duration-300 ease-in-out hover:bg-transparent hover:border border-emerald-900 hover:text-emerald-900"
                 >
                   {subject}
@@ -72,10 +74,13 @@ export const Head = ({ data, pageContext, location }) => {
   } = data
   const { gradeSpan } = pageContext
   const { pathname } = location
-  siteMetadata.siteUrl += pathname
 
   return (
-    <Seo {...siteMetadata} pageTitle={`${gradeSpan} Subjects`}>
+    <Seo
+      {...siteMetadata}
+      pageTitle={`${gradeSpan} Subjects`}
+      pathname={pathname}
+    >
       <title>{`${gradeSpan} Subjects | ${siteMetadata.siteTitle}`}</title>
     </Seo>
   )

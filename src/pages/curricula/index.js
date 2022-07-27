@@ -15,13 +15,15 @@ import Seo from '../../components/Seo'
 const CurriculaIndex = ({
   data: {
     allGoogleCurriculaSheet: { nodes },
+    site: { siteMetadata },
   },
   path,
 }) => {
   // get the unique grade spans present in the Google Spreadsheet
   const spans = getUniqueGradeSpans(nodes)
+  const { siteTitle } = siteMetadata
   return (
-    <Layout siteTitle={'Curricula'} path={path}>
+    <Layout siteTitle={siteTitle} path={path}>
       <Breadcrumb path={path} />
       <Section>
         <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl divide-y mx-auto">
@@ -58,12 +60,12 @@ const CurriculaIndex = ({
               </div>
               <div className="flex-1 mx-auto text-center text-emerald-900 p-4 my-4 md:my-6 hover:text-emerald-800">
                 <Link
-                  to={span.toLowerCase()}
+                  to={`/curricula/${span.toLowerCase()}/`}
                   className="inline-block rounded border border-emerald-900 p-4 transform transition duration-300 ease-in-out hover:bg-emerald-900 hover:text-white hover:shadow-md hover:shadow-slate-900"
                 >
                   <HiBookOpen className=" w-32 h-32 inline" />
                   <br />
-                  <span className="text-xl">Explore {span} curricula</span>
+                  <span className="text-xl">Explore {span} Curricula</span>
                 </Link>
               </div>
             </div>
@@ -88,11 +90,10 @@ export const Head = ({
   },
   location,
 }) => {
-  siteMetadata.siteUrl += location.pathname
-  console.log(siteMetadata.siteUrl)
+  const { pathname } = location
   return (
-    <Seo {...siteMetadata}>
-      <title>Curricula Grade Spans | {siteMetadata.siteTitle}</title>
+    <Seo {...siteMetadata} pageTitle="About Our Curricula" pathname={pathname}>
+      <title>About Our Curricula | {siteMetadata.siteTitle}</title>
     </Seo>
   )
 }
