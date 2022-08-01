@@ -15,7 +15,7 @@ module.exports = {
     siteDescription:
       'The Long Branch Public Schools Curriculum & Instruction office is dedicated to helping all stakeholder receive helpful resources related to what we teach and how we teach it.',
     siteUrl: 'https://dancing-lamington-049ad7.netlify.app/',
-    siteImage: 'lbps_logo.png',
+    siteImage: 'defaultSiteImage.png',
   },
   plugins: [
     `gatsby-plugin-image`,
