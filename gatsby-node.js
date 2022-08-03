@@ -27,14 +27,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
   const areas = contentAreasResult.data.allGoogleCurriculaSheet.nodes
-  areas.forEach(({ gradeSpan, contentArea }) => {
-    createPage({
-      path: `/curricula/${slugify(gradeSpan)}/${slugify(contentArea)}/`,
-      component: path.resolve('./src/templates/content-area-template.js'),
-      context: {
-        gradeSpan,
-        contentArea,
-      },
+  if (areas.length) {
+    areas.forEach(({ gradeSpan, contentArea }) => {
+      createPage({
+        path: `/curricula/${slugify(gradeSpan)}/${slugify(contentArea)}/`,
+        component: path.resolve('./src/templates/content-area-template.js'),
+        context: {
+          gradeSpan,
+          contentArea,
+        },
+      })
     })
-  })
+  }
 }

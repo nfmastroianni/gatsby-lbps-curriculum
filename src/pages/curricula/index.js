@@ -41,6 +41,11 @@ const CurriculaIndex = ({
           </p>
         </div>
       </Section>
+      {!spans.length && (
+        <p className="mx-auto text-center text-3xl font-bold">
+          We have not yet published any curricula. Please check back again soon.
+        </p>
+      )}
       {spans.map((span, i) => {
         return (
           <Section key={span} headerText={span}>

@@ -48,12 +48,12 @@ const Home = ({
                 return (
                   <div
                     key={id}
-                    className="grid grid-rows-1 grid-cols-1 md:grid-cols-3 pt-2 md:pt-6 pb-6 md:pb-8"
+                    className="grid grid-rows-1 grid-cols-1 md:grid-cols-3 pt-2 md:pt-6 pb-6 md:pb-8 md:border-l md:border-r"
                   >
                     <GatsbyImage
                       image={getImage(gatsbyImageData)}
                       alt=""
-                      className="md:col-span-1 self-center justify-self-center md:justify-self-end my-4 md:my-0 md:mr-4"
+                      className="md:col-span-1 self-center justify-self-center md:justify-self-center my-4 md:my-0 md:mr-4"
                     />
                     <div className="col-span-2">
                       <dt className="font-semibold text-center text-2xl lg:text-3xl pb-2 md:pb-4 lg:pb-6">

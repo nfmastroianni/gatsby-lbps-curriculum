@@ -28,6 +28,9 @@ const ContentArea = ({
           {gradeSpan} • {contentArea}
         </h2>
         <div className=" max-w-md">
+          {!areas.length && (
+            <p>No Curricula Are Published in This Content Area</p>
+          )}
           {areas.map(({ title, guide, id, calendar }) => {
             return (
               <details key={id}>

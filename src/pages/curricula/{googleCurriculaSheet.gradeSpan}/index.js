@@ -30,11 +30,17 @@ const SpanIndex = ({
           {gradeSpan} Curricula
         </h2>
         <p className="my-4 prose prose-emerald sm:prose-lg md:prose-xl lg:prose-2xl mx-auto">
-          You have reached the curriculum page for grades K-5. Please select a
-          subject area below to access the documents.
+          You have reached the curriculum page for grades {gradeSpan}. Please
+          select a subject area below to access the documents.
         </p>
       </Section>
       <Section headerText={`Subject Areas for ${gradeSpan}`}>
+        {!subjects.length && (
+          <p className="mx-auto text-center text-3xl font-bold">
+            We have not yet published any curricula. Please check back again
+            soon.
+          </p>
+        )}
         <ul className="max-w-screen-md mx-auto grid md:grid-cols-2 gap-4 text-center mt-2">
           {subjects.map(subject => {
             return (
