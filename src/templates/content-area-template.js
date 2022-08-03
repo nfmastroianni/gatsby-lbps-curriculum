@@ -116,6 +116,7 @@ export const data = graphql`
         gradeSpan: { eq: $gradeSpan }
         contentArea: { eq: $contentArea }
       }
+      sort: { fields: courseTitle, order: ASC }
     ) {
       areas: nodes {
         area: contentArea
