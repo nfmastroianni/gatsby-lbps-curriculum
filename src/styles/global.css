@@ -15,6 +15,10 @@ details > summary {
   @apply text-xl flex items-center p-4 bg-emerald-900 text-white list-none rounded-t cursor-pointer;
 }
 
+details > summary::-webkit-details-marker {
+  @apply hidden;
+}
+
 details > ul {
   @apply mx-4 divide-y;
 }
