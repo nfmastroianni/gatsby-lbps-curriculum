@@ -48,7 +48,7 @@ const CurriculaIndex = ({
       )}
       {spans.map((span, i) => {
         return (
-          <Section key={span} headerText={span}>
+          <Section key={span} headerText={`${span} Curriculum`}>
             <div
               className={`my-4 md:my-6 max-w-screen-2xl mx-auto flex flex-col justify-center items-center ${
                 i % 2 === 0 ? ` md:flex-row-reverse` : `md:flex-row`
@@ -70,7 +70,9 @@ const CurriculaIndex = ({
                 >
                   <HiBookOpen className=" w-32 h-32 inline" />
                   <br />
-                  <span className="text-xl">Explore {span} Curricula</span>
+                  <span className="text-xl">
+                    Click Here <br /> to Explore {span} Curricula
+                  </span>
                 </Link>
               </div>
             </div>

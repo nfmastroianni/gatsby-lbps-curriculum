@@ -17,7 +17,7 @@ const Hero = () => {
         </div>
         <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl md:col-span-3 row-span-1 text-center self-center motion-safe:animate-fade-up motion-safe:md:animate-fade-left">
           <h2 className="text-xl md:text-2xl lg:text-3xl my-3 text-emerald-900">
-            What We Teach &amp; How We Teach It
+            Office of Curriculum &amp; Instruction
           </h2>
         </div>
         <div className="md:col-span-3 row-span-1 motion-safe:animate-fade-up motion-safe:md:animate-fade-left">

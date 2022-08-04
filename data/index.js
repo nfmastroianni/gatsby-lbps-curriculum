@@ -75,19 +75,25 @@ const mainMenu = [
         type: 'internal',
         id: 'c1',
       },
-      {
-        linkText: '6-8 Curricula',
-        url: '/curricula/6-8/',
-        type: 'internal',
-        id: 'c2',
-      },
-      {
-        linkText: '9-12 Curricula',
-        url: '/curricula/9-12/',
-        type: 'internal',
-        id: 'c3',
-      },
+      // {
+      //   linkText: '6-8 Curricula',
+      //   url: '/curricula/6-8/',
+      //   type: 'internal',
+      //   id: 'c2',
+      // },
+      // {
+      //   linkText: '9-12 Curricula',
+      //   url: '/curricula/9-12/',
+      //   type: 'internal',
+      //   id: 'c3',
+      // },
     ],
+  },
+  {
+    linkText: 'Gifted & Talented',
+    url: '/gifted/',
+    type: 'internal',
+    id: 4,
   },
   {
     linkText: 'District Homepage',
@@ -102,21 +108,21 @@ const gradeSpans = [
   {
     id: 'span1',
     title: 'K-5',
-    subtitle: 'primary school',
+    subtitle: 'Students in Grades K-5',
     description:
       'During their time in our elementary program, students will experience steady successes as they strive to meet the challenges put before them. Courses at this level offer students a wide array of topics to help them grow and discover interests. Check out the curricula for K-5 courses by clicking the button nearby.',
   },
   {
-    id: 'span1',
+    id: 'span2',
     title: '6-8',
-    subtitle: 'middle school',
+    subtitle: 'Students in Grades 6-8',
     description:
       'Middle school is an important period of growth for students as they prepare for secondary school. Courses at the middle school level are able to offer deeper explorations of content and skills than those experienced in the primary grades. ',
   },
   {
-    id: 'span1',
+    id: 'span3',
     title: '9-12',
-    subtitle: 'secondary school',
+    subtitle: 'Students in Grades 9-12',
     description:
       'High school courses seek to refine and strengthen key academic and life skills initially developed in primary and middle school. After completing their course work at Long Branch High School, our students are ready for their next step whether in college or career.',
   },
