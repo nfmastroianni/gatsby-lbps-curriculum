@@ -35,7 +35,7 @@ const Home = ({
             teacher for each building. These professionals help ensure best
             practices are followed when using their curriculum.
           </p>
-          <dl className="divide-y">
+          <ul className="divide-y">
             {departments.map(
               ({
                 description,
@@ -46,9 +46,9 @@ const Home = ({
                 departmentUrlType,
               }) => {
                 return (
-                  <div
+                  <li
                     key={id}
-                    className="grid grid-rows-1 grid-cols-1 md:grid-cols-3 pt-2 md:pt-6 pb-6 md:pb-8 md:border-l md:border-r"
+                    className="grid grid-rows-1 grid-cols-1 md:grid-cols-3 pt-2 md:pt-6 pb-6 md:pb-8"
                   >
                     <GatsbyImage
                       image={getImage(gatsbyImageData)}
@@ -56,12 +56,12 @@ const Home = ({
                       className="md:col-span-1 self-center justify-self-center md:justify-self-center my-4 md:my-0 md:mr-4"
                     />
                     <div className="col-span-2">
-                      <dt className="font-semibold text-center text-2xl lg:text-3xl pb-2 md:pb-4 lg:pb-6">
+                      <p className="font-semibold text-center text-2xl lg:text-3xl pb-2 md:pb-4 lg:pb-6">
                         {title}
-                      </dt>
-                      <dd className="prose md:prose-lg lg:prose-xl mx-auto mb-6">
+                      </p>
+                      <p className="prose md:prose-lg lg:prose-xl mx-auto mb-6">
                         {description}
-                      </dd>
+                      </p>
                       {departmentUrl && departmentUrlType === 'internal' ? (
                         <Link
                           to={'/'}
@@ -78,16 +78,17 @@ const Home = ({
                         </a>
                       ) : null}
                     </div>
-                  </div>
+                  </li>
                 )
               }
             )}
-          </dl>
+          </ul>
         </Section>
         <Section headerText={'Explore Our Curricula'}>
-          <p className="prose md:prose-lg lg:prose-xl xl:prose-2xl mx-auto">
+          <p className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto">
             Looking for our Curriculum Documents? We've got you covered. Head on
-            to our curricula page to pick a grade span and get started.
+            over to our <Link to="/curricula/">curricula page</Link> to pick a
+            grade span and get started.
           </p>
           <Link
             to="/curricula/"
