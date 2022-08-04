@@ -54,6 +54,7 @@ const Layout = ({ children, siteTitle, path }) => {
             isScrolled ? `visible` : ` translate-y-[100px]`
           }`}
         />
+        <span className="sr-only">Scroll to the top of the page</span>
       </button>
     </div>
   )

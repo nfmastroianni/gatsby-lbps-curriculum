@@ -89,6 +89,7 @@ const Navbar = ({ siteTitle, path }) => {
       >
         <button onClick={toggleMenu}>
           <HiX className="absolute top-4 right-4 text-slate-300 w-6 h-6" />
+          <span className="sr-only">Close navigation menu</span>
         </button>
         <StaticImage
           src="../../../images/curriculum_logo.png"
@@ -96,7 +97,7 @@ const Navbar = ({ siteTitle, path }) => {
           height={120}
           layout="constrained"
           placeholder="tracedSVG"
-          alt=""
+          alt="The Office of Curriculum and Instruction Logo"
         />
         <ul className="">
           {mainMenu.map(item => {
