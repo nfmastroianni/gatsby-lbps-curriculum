@@ -24,7 +24,7 @@ details > ul {
 }
 
 details > ul > li {
-  @apply p-4 text-emerald-900 text-lg;
+  @apply p-4 rounded text-emerald-900 text-lg hover:bg-slate-50;
 }
 
 details[open] > ul > li > svg {
