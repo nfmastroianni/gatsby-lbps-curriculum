@@ -1,12 +1,13 @@
 // import libraries
 import * as React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 // import components
 import Layout from '../../../components/Layout'
 import Seo from '../../../components/Seo'
 import Breadcrumb from '../../../components/Breadcrumb'
 import Section from '../../../components/Section'
+import ButtonLink from '../../../components/ButtonLink'
 import { getUniqueContentAreas, slugify } from '../../../../utils'
 
 const SpanIndex = ({
@@ -45,14 +46,14 @@ const SpanIndex = ({
           {subjects.map(subject => {
             return (
               <li key={subject} className="">
-                <Link
-                  to={`/curricula/${gradeSpan.toLowerCase()}/${slugify(
+                <ButtonLink
+                  type="internal"
+                  url={`/curricula/${gradeSpan.toLowerCase()}/${slugify(
                     subject
                   )}/`}
-                  className="block px-4 py-2 text-white bg-emerald-900 rounded border transition duration-300 ease-in-out hover:bg-transparent hover:border border-emerald-900 hover:text-emerald-900"
                 >
                   {subject}
-                </Link>
+                </ButtonLink>
               </li>
             )
           })}

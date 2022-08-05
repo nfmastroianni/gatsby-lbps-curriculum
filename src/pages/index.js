@@ -8,6 +8,7 @@ import Section from '../components/Section'
 import { departments } from '../../data'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { getDepartmentImages } from '../../utils'
+import ButtonLink from '../components/ButtonLink'
 // import { HiCheck } from 'react-icons/hi'
 
 const Home = ({
@@ -26,7 +27,7 @@ const Home = ({
       <Layout siteTitle={siteTitle} path={path}>
         <Hero />
         <Section headerText="Learn More About Us">
-          <h3 className="text-2xl md:text-3xl font-light text-center my-2 md:my-4 lg:my-6">
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-center my-2 md:my-4 lg:my-6">
             Departments
           </h3>
           <p className="prose md:prose-lg mx-auto my-4 md:my-6 lg:my-8">
@@ -56,27 +57,15 @@ const Home = ({
                       className="md:col-span-1 self-center justify-self-center md:justify-self-center my-4 md:my-0 md:mr-4"
                     />
                     <div className="col-span-2">
-                      <p className="font-semibold text-center text-2xl lg:text-3xl pb-2 md:pb-4 lg:pb-6">
+                      <h4 className="text-xl md:text-2xl lg:text-3xl font-light text-center my-2 md:my-4 lg:my-6">
                         {title}
-                      </p>
+                      </h4>
                       <p className="prose md:prose-lg lg:prose-xl mx-auto mb-6">
                         {description}
                       </p>
-                      {departmentUrl && departmentUrlType === 'internal' ? (
-                        <Link
-                          to={'/'}
-                          className="px-4 py-2 text-white bg-emerald-900 rounded border transition duration-300 ease-in-out hover:bg-transparent hover:border border-emerald-900 hover:text-emerald-900 block mx-auto max-w-screen-sm text-center"
-                        >
-                          Visit the {title} site.
-                        </Link>
-                      ) : departmentUrl && departmentUrlType === 'external' ? (
-                        <a
-                          href={departmentUrl}
-                          className="px-4 py-2 text-white bg-emerald-900 rounded border transition duration-300 ease-in-out hover:bg-transparent hover:border border-emerald-900 hover:text-emerald-900 block mx-auto max-w-screen-sm text-center"
-                        >
-                          Visit the {title} site
-                        </a>
-                      ) : null}
+                      <ButtonLink url={departmentUrl} type={departmentUrlType}>
+                        Visit the {title} site
+                      </ButtonLink>
                     </div>
                   </li>
                 )
@@ -90,12 +79,9 @@ const Home = ({
             over to our <Link to="/curricula/">curricula page</Link> to pick a
             grade span and get started.
           </p>
-          <Link
-            to="/curricula/"
-            className="my-4 px-4 py-2 text-white bg-emerald-900 rounded border transition duration-300 ease-in-out hover:bg-transparent hover:border border-emerald-900 hover:text-emerald-900 block mx-auto text-center w-[200px]"
-          >
+          <ButtonLink url="/curricula/" className="w-[200px] my-8">
             Pick a Grade Span
-          </Link>
+          </ButtonLink>
         </Section>
         {/* <Section headerText="How We Teach">
           <h3 className="text-2xl md:text-3xl font-light text-center my-2 md:my-4 lg:my-6">
