@@ -56,7 +56,7 @@ const SpanIndex = ({
                   )}/`}
                 >
                   {title}
-                  <div className="absolute -right-2 -top-2 w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center text-xs md:text-sm lg:text-base shadow-lg shadow-emerald-700 border border-white">
+                  <div className="absolute -left-2 -top-2 w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center text-xs md:text-sm lg:text-base shadow-lg shadow-emerald-700 border border-white">
                     {count}
                   </div>
                 </ButtonLink>
