@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import { HiChevronRight, HiMenu, HiX } from 'react-icons/hi'
 import { mainMenu } from '../../../../data'
+import Heading from '../../Heading'
 
 const Navbar = ({ siteTitle, path }) => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -48,9 +49,12 @@ const Navbar = ({ siteTitle, path }) => {
           </div>
           {/* NAVBAR CENTER - TITLE */}
           <div className="absolute left-1/2 transform -translate-x-1/2 text-center">
-            <h1 className="sm:text-xl md:text-2xl lg:text-3xl font-semibold ">
+            <Heading
+              level={1}
+              className="sm:text-xl md:text-2xl lg:text-3xl font-semibold "
+            >
               {siteTitle}
-            </h1>
+            </Heading>
             <p className="prose prose-sm">Long Branch Public Schools</p>
           </div>
           {/* NAVBAR RIGHT - LOGO */}
