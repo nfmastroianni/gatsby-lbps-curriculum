@@ -55,7 +55,13 @@ const getUniqueContentAreas = arr => {
   let allContentAreas = []
   arr.forEach(area => allContentAreas.push(area.subject))
   let uniqueAreas = [...new Set(allContentAreas)]
-  return uniqueAreas
+  let returnData = uniqueAreas.map((area, i) => {
+    return {
+      title: area,
+      count: allContentAreas.filter(subject => subject === area).length,
+    }
+  })
+  return returnData
 }
 
 /**
