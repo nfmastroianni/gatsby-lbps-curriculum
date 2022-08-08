@@ -11,6 +11,7 @@ import { HiBookOpen } from 'react-icons/hi'
 // import data
 import { gradeSpans } from '../../../data'
 import Seo from '../../components/Seo'
+import Heading from '../../components/Heading'
 
 const CurriculaIndex = ({
   data: {
@@ -27,8 +28,10 @@ const CurriculaIndex = ({
       <Breadcrumb path={path} />
       <Section>
         <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl divide-y mx-auto">
-          <h2 className="text-center text-emerald-900">About Our Curricula</h2>
-          <p className="py-4 prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto">
+          <Heading level={2} prose={true} className="text-center">
+            About Our Curricula
+          </Heading>
+          <p className="py-4">
             In order to ensure our students receive a rigorous, our curricula
             are developed using the "
             <a href="https://files.ascd.org/staticfiles/ascd/pdf/siteASCD/publications/UbD_WhitePaper0312.pdf">
