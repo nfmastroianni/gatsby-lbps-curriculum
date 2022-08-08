@@ -8,6 +8,10 @@ on:
   push:
     branches: [ "main" ]
 
+env:
+  GOOGLE_SERVICE_ACCOUNT_KEYS: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEYS }}
+  SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
