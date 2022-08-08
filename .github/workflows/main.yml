@@ -6,7 +6,8 @@ name: Netlify Build
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: ['main']
+  repository_dispatch:
 
 env:
   GOOGLE_SERVICE_ACCOUNT_KEYS: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEYS }}
@@ -23,12 +24,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-        name: "Checkout Source Code"
-      
+        name: 'Checkout Source Code'
+
       # Setup Node Environment
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.4.1
-        with: 
+        with:
           node-version: 16.x
 
       # Runs a set of commands using the runners shell
