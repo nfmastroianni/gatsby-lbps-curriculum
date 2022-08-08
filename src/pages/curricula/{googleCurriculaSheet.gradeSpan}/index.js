@@ -7,6 +7,7 @@ import Layout from '../../../components/Layout'
 import Seo from '../../../components/Seo'
 import Breadcrumb from '../../../components/Breadcrumb'
 import Section from '../../../components/Section'
+import Heading from '../../../components/Heading'
 import ButtonLink from '../../../components/ButtonLink'
 import { getUniqueContentAreas, slugify } from '../../../../utils'
 
@@ -27,13 +28,15 @@ const SpanIndex = ({
     <Layout siteTitle={siteTitle} path={path}>
       <Breadcrumb path={path} />
       <Section>
-        <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-center border-b py-4">
-          {gradeSpan} Curricula
-        </h2>
-        <p className="my-4 prose prose-emerald sm:prose-lg md:prose-xl lg:prose-2xl mx-auto">
-          You have reached the curriculum page for grades {gradeSpan}. Please
-          select a subject area below to access the documents.
-        </p>
+        <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto divide-y">
+          <Heading level={2} prose={true} className="text-center">
+            {`${gradeSpan} Curricula`}
+          </Heading>
+          <p className="py-4 ">
+            You have reached the curriculum page for grades {gradeSpan}. Please
+            select a subject area below to access the documents.
+          </p>
+        </div>
       </Section>
       <Section headerText={`Subject Areas for ${gradeSpan}`}>
         {!subjects.length && (
@@ -42,17 +45,20 @@ const SpanIndex = ({
             soon.
           </p>
         )}
-        <ul className="max-w-screen-md mx-auto grid md:grid-cols-2 gap-4 text-center mt-2">
-          {subjects.map(subject => {
+        <ul className="max-w-screen-md mx-auto my-4 md:my-6 lg:my-8 grid md:grid-cols-2 gap-6 text-center mt-2">
+          {subjects.map(({ title, count }) => {
             return (
-              <li key={subject} className="">
+              <li key={title} className="">
                 <ButtonLink
                   type="internal"
                   url={`/curricula/${gradeSpan.toLowerCase()}/${slugify(
-                    subject
+                    title
                   )}/`}
                 >
-                  {subject}
+                  {title}
+                  <div className="absolute -right-2 -top-2 w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center text-xs md:text-sm lg:text-base shadow-lg shadow-emerald-700 border border-white">
+                    {count}
+                  </div>
                 </ButtonLink>
               </li>
             )
