@@ -79,7 +79,7 @@ const Home = ({
             over to our <Link to="/curricula/">curricula page</Link> to pick a
             grade span and get started.
           </p>
-          <ButtonLink url="/curricula/" className="w-[200px] my-8">
+          <ButtonLink url="/curricula/" className="w-[300px] my-8">
             Pick a Grade Span
           </ButtonLink>
         </Section>
