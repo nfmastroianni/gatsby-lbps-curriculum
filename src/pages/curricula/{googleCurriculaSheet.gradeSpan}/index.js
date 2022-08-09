@@ -54,9 +54,10 @@ const SpanIndex = ({
                   url={`/curricula/${gradeSpan.toLowerCase()}/${slugify(
                     title
                   )}/`}
+                  className="group"
                 >
                   {title}
-                  <div className="absolute -left-2 -top-2 w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center text-xs md:text-sm lg:text-base shadow-lg shadow-emerald-700 border border-white">
+                  <div className="absolute -left-2 -top-2 w-6 h-6 transition duration-300 ease-in-out bg-white border border-emerald-900 text-emerald-900 group-hover:text-white group-hover:bg-emerald-900 group-hover:border-white rounded-full flex items-center justify-center text-xs md:text-sm lg:text-base shadow-lg shadow-emerald-600 group-hover:shadow-emerald-800">
                     {count}
                   </div>
                 </ButtonLink>
