@@ -64,7 +64,7 @@ const Home = ({
                         {description}
                       </p>
                       <ButtonLink url={departmentUrl} type={departmentUrlType}>
-                        Visit the {title} site
+                        {`Visit the ${title} site`}
                       </ButtonLink>
                     </div>
                   </li>
@@ -74,12 +74,16 @@ const Home = ({
           </ul>
         </Section>
         <Section headerText={'Explore Our Curricula'}>
-          <p className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto">
+          <p className="my-4 md:my-6 prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto">
             Looking for our Curriculum Documents? We've got you covered. Head on
             over to our <Link to="/curricula/">curricula page</Link> to pick a
             grade span and get started.
           </p>
-          <ButtonLink url="/curricula/" className="w-[300px] my-8">
+          <ButtonLink
+            url="/curricula/"
+            className="w-[300px] my-8"
+            type={'internal'}
+          >
             Pick a Grade Span
           </ButtonLink>
         </Section>
