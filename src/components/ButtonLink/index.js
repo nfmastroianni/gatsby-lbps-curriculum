@@ -24,4 +24,12 @@ const ButtonLink = ({ children, type, url, className }) => {
   }
 }
 
+ButtonLink.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+    .isRequired,
+  type: PropTypes.oneOf(['internal', 'external']).isRequired,
+  url: PropTypes.string.isRequired,
+  className: PropTypes.string,
+}
+
 export default ButtonLink
