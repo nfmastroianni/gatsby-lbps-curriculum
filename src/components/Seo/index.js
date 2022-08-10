@@ -24,8 +24,8 @@ const Seo = ({
         property="og:title"
         content={`${pageTitle} | ${siteTitle}`}
       />
+      <meta name="description" content={siteDescription} />
       <meta property="og:description" content={siteDescription} />
-      <meta name="description" content={``} />
       {/* TWITTER TAGS */}
       <meta
         id="twitter-image"
