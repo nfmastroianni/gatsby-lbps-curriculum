@@ -30,6 +30,13 @@ module.exports = {
         'fade-right': 'fadeRight 1s ease-in-out 1',
         'fade-left': 'fadeLeft 1s ease-in-out 1',
       },
+      typography: ({ theme }) => ({
+        emerald: {
+          css: {
+            '--tw-prose-links': theme('colors.emerald[800]'),
+          },
+        },
+      }),
     },
   },
   plugins: [require('@tailwindcss/typography')],
