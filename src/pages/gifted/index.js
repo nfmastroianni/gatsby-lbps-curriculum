@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Layout from '../../components/Layout'
 import Breadcrumb from '../../components/Breadcrumb'
 import { graphql } from 'gatsby'
+import Seo from '../../components/Seo'
 import Section from '../../components/Section'
 import Heading from '../../components/Heading'
 import Blockquote from '../../components/Blockquote'
@@ -197,6 +198,25 @@ GiftedAndTalented.propTypes = {
       }),
     }),
   }),
+}
+
+export function Head({
+  data: {
+    site: { siteMetadata },
+  },
+  location,
+}) {
+  const { siteTitle } = siteMetadata
+  const { pathname } = location
+  return (
+    <Seo
+      {...siteMetadata}
+      pageTitle="Accelerated Learning Program"
+      pathname={pathname}
+    >
+      <title>{`Accelerated Learning Program | ${siteTitle}`}</title>
+    </Seo>
+  )
 }
 
 export default GiftedAndTalented
