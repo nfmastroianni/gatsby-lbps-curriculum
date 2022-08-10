@@ -68,6 +68,7 @@ const Navbar = ({ siteTitle, path }) => {
                 height={48}
                 placeholder="blurred"
               />
+              <span className="sr-only">Return to Curriculum Home Page</span>
             </Link>
           </div>
         </div>
