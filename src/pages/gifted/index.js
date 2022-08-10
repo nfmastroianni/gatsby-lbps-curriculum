@@ -172,7 +172,7 @@ const GiftedAndTalented = ({ data, path }) => {
               please checkout the guide.
             </a>
           </p>
-          <p className="text-center">
+          <div className="text-center">
             <a href="https://docs.google.com/document/d/1RLv_hX0sOTov-hzuUC1_QqRa9EM_1Uz_yro45Yq8_eI/edit">
               <GatsbyImage
                 image={getImage(
@@ -182,7 +182,7 @@ const GiftedAndTalented = ({ data, path }) => {
                 className="shadow-md"
               />
             </a>
-          </p>
+          </div>
           <p>
             Additionaly, our Board of Education{' '}
             <a href="https://www.straussesmay.com/seportal/Public/DistrictPolicy.aspx?policyid=2464&id=b50ce4ebbb5f451db593dc1acdca7f47">
