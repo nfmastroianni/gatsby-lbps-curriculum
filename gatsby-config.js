@@ -10,6 +10,9 @@ require('dotenv').config({
 const keys = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEYS)
 module.exports = {
   /* Your site config here */
+  flags: {
+    // DEV_SSR: true,
+  },
   siteMetadata: {
     siteTitle: 'Curriculum & Instruction',
     siteDescription:

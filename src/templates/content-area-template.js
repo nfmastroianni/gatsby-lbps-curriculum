@@ -18,11 +18,12 @@ const ContentArea = ({
     },
   },
   path,
+  location,
   pageContext: { contentArea, gradeSpan },
 }) => {
   return (
     <Layout siteTitle={siteTitle} path={path}>
-      <Breadcrumb path={path} contentArea={contentArea} />
+      <Breadcrumb pathname={location.pathname} contentArea={contentArea} />
       <Section>
         <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-semibold border-b py-4  mb-4">
           {gradeSpan} • {contentArea}

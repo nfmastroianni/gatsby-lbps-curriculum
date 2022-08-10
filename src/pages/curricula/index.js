@@ -19,13 +19,14 @@ const CurriculaIndex = ({
     site: { siteMetadata },
   },
   path,
+  location,
 }) => {
   // get the unique grade spans present in the Google Spreadsheet
   const spans = getUniqueGradeSpans(nodes)
   const { siteTitle } = siteMetadata
   return (
     <Layout siteTitle={siteTitle} path={path}>
-      <Breadcrumb path={path} />
+      <Breadcrumb pathname={location.pathname} />
       <Section>
         <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl divide-y mx-auto">
           <Heading level={2} prose={true} className="text-center">

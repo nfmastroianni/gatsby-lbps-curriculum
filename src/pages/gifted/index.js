@@ -8,7 +8,7 @@ import Section from '../../components/Section'
 import Heading from '../../components/Heading'
 import Blockquote from '../../components/Blockquote'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-const GiftedAndTalented = ({ data, path }) => {
+const GiftedAndTalented = ({ data, path, location }) => {
   const {
     site: {
       siteMetadata: { siteTitle },
@@ -18,7 +18,7 @@ const GiftedAndTalented = ({ data, path }) => {
   } = data
   return (
     <Layout siteTitle={siteTitle} path={path}>
-      <Breadcrumb path={path} />
+      <Breadcrumb pathname={location.pathname} />
       <Section>
         <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto">
           <Heading level={2} className="text-center">
