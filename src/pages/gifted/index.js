@@ -130,6 +130,8 @@ const GiftedAndTalented = ({
                 <li>Needs multiple (6-8) repititions for mastery</li>
                 <li>Answers the questions</li>
                 <li>Understands ideas</li>
+                <li>Completes assignments</li>
+                <li>Is a technician</li>
               </ul>
             </div>
             <div>
@@ -140,6 +142,8 @@ const GiftedAndTalented = ({
                 <li>Needs minimal (1-2) repititions for mastery</li>
                 <li>Discusses using details and elaborates</li>
                 <li>Constructs abstractions</li>
+                <li>Initiates projects</li>
+                <li>Is an inventor</li>
               </ul>
             </div>
           </div>
