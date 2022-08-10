@@ -7,17 +7,15 @@ import Seo from '../../components/Seo'
 import Section from '../../components/Section'
 import Heading from '../../components/Heading'
 import Blockquote from '../../components/Blockquote'
-const GiftedAndTalented = ({
-  data: {
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+const GiftedAndTalented = ({ data, path }) => {
+  const {
     site: {
       siteMetadata: { siteTitle },
     },
-    file: {
-      childImageSharp: { nagcImageData },
-    },
-  },
-  path,
-}) => {
+    giftedGuideImage,
+    nacgImage,
+  } = data
   return (
     <Layout siteTitle={siteTitle} path={path}>
       <Breadcrumb path={path} />
@@ -39,7 +37,7 @@ const GiftedAndTalented = ({
             quote="Because every child is different, NAGC recognizes that there is no “one perfect program” for teaching gifted students. Instead, the NAGC Pre-K-Grade 12 Gifted Programming Standards state that “a continuum of services must exist for gifted learners” at every level."
             author="National Association for Gifted Children"
             url="https://nagc.org"
-            image={nagcImageData}
+            image={nacgImage.childImageSharp.nagcImageData}
             imageAlt="Logo for NAGC.org"
             className="not-prose"
           />
@@ -174,6 +172,17 @@ const GiftedAndTalented = ({
               please checkout the guide.
             </a>
           </p>
+          <p className="text-center">
+            <a href="https://docs.google.com/document/d/1RLv_hX0sOTov-hzuUC1_QqRa9EM_1Uz_yro45Yq8_eI/edit">
+              <GatsbyImage
+                image={getImage(
+                  giftedGuideImage.childImageSharp.giftedGuideImageData
+                )}
+                alt="the accelerated learning program guide"
+                className="shadow-md"
+              />
+            </a>
+          </p>
           <p>
             Additionaly, our Board of Education{' '}
             <a href="https://www.straussesmay.com/seportal/Public/DistrictPolicy.aspx?policyid=2464&id=b50ce4ebbb5f451db593dc1acdca7f47">
@@ -231,12 +240,20 @@ export const query = graphql`
         siteImage
       }
     }
-    file(name: { eq: "nagcorg" }) {
+    nacgImage: file(name: { eq: "nagcorg" }) {
       childImageSharp {
         nagcImageData: gatsbyImageData(
           placeholder: TRACED_SVG
           width: 35
           height: 35
+        )
+      }
+    }
+    giftedGuideImage: file(name: { eq: "giftedGuide" }) {
+      childImageSharp {
+        giftedGuideImageData: gatsbyImageData(
+          placeholder: TRACED_SVG
+          width: 200
         )
       }
     }
