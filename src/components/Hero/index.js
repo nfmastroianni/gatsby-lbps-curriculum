@@ -32,8 +32,10 @@ const Hero = () => {
         </div>
         <div className="md:col-span-2 row-span-1 p-2 mb-2 md:mb-0 self-end motion-safe:animate-fade-up motion-safe:md:animate-fade-right">
           <Heading level={3} className="text-center">
-            Nicole Esposito <br />
-            Assistant Superintendent <br /> of Curriculum &amp; Instruction
+            <span>
+              Nicole Esposito <br />
+              Assistant Superintendent <br /> of Curriculum &amp; Instruction
+            </span>
           </Heading>
         </div>
         <div className="md:col-span-3 row-span-1 p-2 mb-2 md:mb-0 self-end motion-safe:md:animate-fade-left">

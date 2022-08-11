@@ -18,8 +18,9 @@ const Layout = ({ children, siteTitle, path }) => {
   const toggleToTop = () => {
     toggleVisible(setIsScrolled)
   }
+  const siteWrapper = React.useRef(null)
   return (
-    <div className="flex flex-col min-h-screen space-between">
+    <div ref={siteWrapper} className="flex flex-col min-h-screen space-between">
       <ul id="nav-access" className="relative">
         <li className="">
           <button
@@ -42,7 +43,7 @@ const Layout = ({ children, siteTitle, path }) => {
           </button>
         </li>
       </ul>
-      <Navbar siteTitle={siteTitle} path={path} />
+      <Navbar siteTitle={siteTitle} path={path} siteWrapper={siteWrapper} />
 
       <main id="main-content" className="dark:bg-gray-900">
         {children}

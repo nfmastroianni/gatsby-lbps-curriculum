@@ -1,33 +1,38 @@
 import * as React from 'react'
 import { HiMoon, HiSun } from 'react-icons/hi'
 
-const DarkMode = () => {
-  let theme
-  if (localStorage) {
-    theme = localStorage.getItem('theme')
-  }
-  const [mode, setMode] = React.useState(theme)
-  const body = document.body
+const DarkMode = ({ siteWrapper }) => {
+  const [mode, setMode] = React.useState(null)
 
-  if (
-    theme === 'light' ||
-    (theme === 'dark' &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
-    body.classList.add(theme)
-  } else {
-    body.classList.add('light')
-  }
+  React.useEffect(() => {
+    const storedTheme = localStorage.getItem('theme')
+
+    if (
+      storedTheme === 'light' ||
+      (storedTheme === 'dark' &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      siteWrapper.current.classList.add(storedTheme)
+      setMode(storedTheme)
+      localStorage.setItem('theme', storedTheme)
+    } else {
+      setMode('light')
+      siteWrapper.current.classList.add('light')
+      localStorage.setItem('theme', 'light')
+    }
+  }, [mode, siteWrapper])
 
   const switchTheme = e => {
-    if (theme === 'dark') {
+    if (mode === 'dark') {
+      console.log('MODE IS DARK ===> ', mode)
       setMode('light')
       localStorage.setItem('theme', 'light')
-      body.classList.replace('dark', 'light')
+      siteWrapper.current.classList.remove('dark')
     } else {
+      console.log('MODE IS NOT DARK ===> ', mode)
       setMode('dark')
       localStorage.setItem('theme', 'dark')
-      body.classList.replace('light', 'dark')
+      siteWrapper.current.classList.add('dark')
     }
   }
 

@@ -7,7 +7,7 @@ import { mainMenu } from '../../../../data'
 import Heading from '../../Heading'
 import DarkMode from '../DarkMode'
 
-const Navbar = ({ siteTitle, path }) => {
+const Navbar = ({ siteTitle, siteWrapper }) => {
   const [isOpen, setIsOpen] = React.useState(false)
   React.useEffect(() => {
     if (isOpen) {
@@ -62,7 +62,7 @@ const Navbar = ({ siteTitle, path }) => {
           </div>
           {/* NAVBAR RIGHT - LOGO */}
           <div className="grid grid-cols-2 gap-x-4 relative">
-            <DarkMode />
+            <DarkMode siteWrapper={siteWrapper} />
             <Link to="/" className="hidden sm:block">
               <StaticImage
                 src="../../../images/lbps_logo.png"
