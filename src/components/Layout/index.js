@@ -50,7 +50,7 @@ const Layout = ({ children, siteTitle, path }) => {
       <Footer />
       <button onClick={handleToTop}>
         <HiChevronUp
-          className={`w-8 h-8 bg-emerald-900 bg-opacity-60 text-white rounded-full fixed bottom-6 right-6 transition duration-500 ease-in-out ${
+          className={`w-8 h-8 bg-emerald-900 bg-opacity-60 text-white rounded-full fixed bottom-6 right-6 motion-safe:transition motion-safe:duration-500 motion-safe:ease-in-out ${
             isScrolled ? `visible` : ` translate-y-[100px]`
           }`}
         />

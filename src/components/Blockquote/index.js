@@ -4,12 +4,13 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const QuoteIcon = ({ children, className }) => {
   return (
-    <div
-      className={`font-serif text-emerald-900 absolute -left-10 -top-14 text-[8rem] hidden sm:block ${className}`}
+    <span
+      className={`font-serif text-emerald-900 absolute -left-10 -top-14 text-[8rem] hidden sm:block transition duration-500 ease-in-out  motion-safe:group-hover:scale-105 origin-bottom-left motion-safe:group-hover:-rotate-3 ${className}`}
       aria-hidden="true"
+      style={{ textShadow: '2px 2px 4px darkgray' }}
     >
       {children}
-    </div>
+    </span>
   )
 }
 
@@ -23,7 +24,7 @@ const Blockquote = ({
 }) => {
   return (
     <blockquote
-      className={`max-w-screen-sm my-4 md:my-6 lg:my-8 p-4 md:p-6 shadow-md relative rounded border mx-auto ${className}`}
+      className={`max-w-screen-sm my-4 md:my-6 lg:my-8 p-4 md:p-6 shadow relative rounded border mx-auto group ${className}`}
     >
       <QuoteIcon>&ldquo;</QuoteIcon>
       <p className="font-serif italic">{quote}</p>
