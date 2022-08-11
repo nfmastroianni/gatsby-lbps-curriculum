@@ -22,7 +22,7 @@ const GiftedAndTalented = ({ data, path, location }) => {
       <Section>
         <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto">
           <Heading level={2} className="text-center">
-            Accelerated Learning Program
+            Gifted &amp; Talented
           </Heading>
           <p className="pt-4 md:pt-6 lg:pt-8 border-t">
             The Long Branch Public School District recognizes that all children
@@ -56,7 +56,7 @@ const GiftedAndTalented = ({ data, path, location }) => {
           </p>
         </div>
       </Section>
-      <Section headerText={'Overview of the Accelerated Learning Program'}>
+      <Section headerText={'Overview of the Gifted & Talented Program'}>
         <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto">
           <p>
             The Long Branch Public Schools Gifted and Talented Program in Grades
@@ -104,9 +104,7 @@ const GiftedAndTalented = ({ data, path, location }) => {
           </ul>
         </div>
       </Section>
-      <Section
-        headerText={'Identification of Accelerated Learning Program Students'}
-      >
+      <Section headerText={'Identification of Gifted & Talented Students'}>
         <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto">
           <p>
             The identification process occurs at the beginning and middle of
