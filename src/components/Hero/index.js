@@ -1,5 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image'
 import * as React from 'react'
+import Heading from '../Heading'
 
 const Hero = () => {
   return (
@@ -13,15 +14,14 @@ const Hero = () => {
             placeholder="tracedSVG"
             width={300}
             height={300}
+            className="mb-4"
           />
         </div>
         <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl md:col-span-3 row-span-1 text-center self-center motion-safe:animate-fade-up motion-safe:md:animate-fade-left">
-          <h2 className="text-xl md:text-2xl lg:text-3xl my-3 text-emerald-900">
-            Office of Curriculum &amp; Instruction
-          </h2>
+          <Heading level={2}>Office of Curriculum &amp; Instruction</Heading>
         </div>
         <div className="md:col-span-3 row-span-1 motion-safe:animate-fade-up motion-safe:md:animate-fade-left">
-          <p className="prose md:prose-lg lg:prose-xl xl:prose-2xl px-2 md:px-3 lg:px-4">
+          <p className="prose md:prose-lg lg:prose-xl xl:prose-2xl dark:prose-invert px-2 md:px-3 lg:px-4">
             We have an important mission here at Long Branch Public Schools. We
             strive to meet and exceed the standards set forth by the State of
             New Jersey. In order to accomplish this, we continuously develop and
@@ -31,21 +31,26 @@ const Hero = () => {
           </p>
         </div>
         <div className="md:col-span-2 row-span-1 p-2 mb-2 md:mb-0 self-end motion-safe:animate-fade-up motion-safe:md:animate-fade-right">
-          <h3 className="text-center font-semibold text-emerald-900 text-2xl">
+          <Heading level={3} className="text-center">
             Nicole Esposito <br />
             Assistant Superintendent <br /> of Curriculum &amp; Instruction
-          </h3>
+          </Heading>
         </div>
         <div className="md:col-span-3 row-span-1 p-2 mb-2 md:mb-0 self-end motion-safe:md:animate-fade-left">
-          <h4 className="text-xl font-semibold text-center pb-2 border-b">
+          <Heading
+            level={4}
+            className="dark:text-emerald-200 text-center pb-2 border-b dark:border-b-gray-600"
+          >
             Office Information
-          </h4>
-          <p className="prose-sm text-center italic my-4 md:my-2">
+          </Heading>
+          <p className="prose prose-sm dark:prose-invert text-center italic my-4 md:my-2 mx-auto">
             540 Broadway <br />
             Long Branch, NJ 07740
           </p>
-          <p className="text-xl font-semibold text-center">Maria Graziano</p>
-          <ul className="text-center">
+          <Heading level={5} className="text-center">
+            Maria Graziano
+          </Heading>
+          <ul className="text-center prose prose-sm dark:prose-invert mx-auto">
             <li>Confidential Secretary</li>
             <li>732-571-2868 ext. 40240</li>
           </ul>

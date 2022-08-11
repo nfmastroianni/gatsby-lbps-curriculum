@@ -5,6 +5,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import { HiChevronRight, HiMenu, HiX } from 'react-icons/hi'
 import { mainMenu } from '../../../../data'
 import Heading from '../../Heading'
+import DarkMode from '../DarkMode'
 
 const Navbar = ({ siteTitle, path }) => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -26,7 +27,7 @@ const Navbar = ({ siteTitle, path }) => {
   }
   return (
     <>
-      <nav className="min-h-[75px] shadow-sm  text-emerald-900">
+      <nav className="min-h-[75px] shadow-sm  text-emerald-900 dark:bg-emerald-900 dark:text-white">
         <div className="px-3 sm:px-6 lg:px-10 xl:px-12 py-3 sm:py-4 md:py-5 lg:py-6 flex justify-between items-center  max-w-screen-2xl mx-auto">
           {/* NAVBAR LEFT - MENU */}
           <div className="flex items-center">
@@ -51,15 +52,18 @@ const Navbar = ({ siteTitle, path }) => {
           <div className="absolute left-1/2 transform -translate-x-1/2 text-center">
             <Heading
               level={1}
-              className="sm:text-xl md:text-2xl lg:text-3xl font-semibold "
+              className="sm:text-xl md:text-2xl lg:text-3xl font-semibold dark:text-white"
             >
               {siteTitle}
             </Heading>
-            <p className="prose prose-sm">Long Branch Public Schools</p>
+            <p className="prose prose-sm dark:prose-invert">
+              Long Branch Public Schools
+            </p>
           </div>
           {/* NAVBAR RIGHT - LOGO */}
-          <div>
-            <Link to="/">
+          <div className="grid grid-cols-2 gap-x-4 relative">
+            <DarkMode />
+            <Link to="/" className="hidden sm:block">
               <StaticImage
                 src="../../../images/lbps_logo.png"
                 className="w-12 h-12"
@@ -86,7 +90,7 @@ const Navbar = ({ siteTitle, path }) => {
       </div>
       {/* OFF-CANVAS / SIDE DRAWER MENU */}
       <aside
-        className={`absolute top-0 z-10 h-screen  bg-gradient-to-b from-emerald-800 via-emerald-900 to-slate-900 transition ease-in-out duration-500 w-[260px] md:w-[400px] flex flex-col justify-center items-center text-white ${
+        className={`absolute top-0 z-10 h-screen  bg-gradient-to-b from-emerald-800 via-emerald-900 to-gray-900 transition ease-in-out duration-500 w-[260px] md:w-[400px] flex flex-col justify-center items-center text-white ${
           isOpen
             ? ' -translate-x-[0px]'
             : ' -translate-x-[260px] md:-translate-x-[400px]'

@@ -5,6 +5,7 @@ import Layout from '../components/Layout'
 import Seo from '../components/Seo'
 import Hero from '../components/Hero'
 import Section from '../components/Section'
+import Heading from '../components/Heading'
 import { departments } from '../../data'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { getDepartmentImages } from '../../utils'
@@ -27,10 +28,13 @@ const Home = ({
       <Layout siteTitle={siteTitle} path={path}>
         <Hero />
         <Section headerText="Learn More About Us">
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-center my-2 md:my-4 lg:my-6">
+          <Heading
+            level={3}
+            className="text-2xl md:text-3xl lg:text-4xl font-light text-center my-2 md:my-4 lg:my-6"
+          >
             Departments
-          </h3>
-          <p className="prose md:prose-lg mx-auto my-4 md:my-6 lg:my-8">
+          </Heading>
+          <p className="prose md:prose-lg dark:prose-invert mx-auto my-4 md:my-6 lg:my-8">
             Check out some of the departments here at Long Branch Public
             Schools. Each department has at least one supervisor and a master
             teacher for each building. These professionals help ensure best
@@ -57,10 +61,13 @@ const Home = ({
                       className="md:col-span-1 self-center justify-self-center md:justify-self-center my-4 md:my-0 md:mr-4"
                     />
                     <div className="col-span-2">
-                      <h4 className="text-xl md:text-2xl lg:text-3xl font-light text-center my-2 md:my-4 lg:my-6">
+                      <Heading
+                        level={4}
+                        className="text-xl md:text-2xl lg:text-3xl font-light text-center my-2 md:my-4 lg:my-6"
+                      >
                         {title}
-                      </h4>
-                      <p className="prose md:prose-lg lg:prose-xl mx-auto mb-6">
+                      </Heading>
+                      <p className="prose md:prose-lg lg:prose-xl dark:prose-invert mx-auto mb-6">
                         {description}
                       </p>
                       <ButtonLink url={departmentUrl} type={departmentUrlType}>
@@ -74,7 +81,7 @@ const Home = ({
           </ul>
         </Section>
         <Section headerText={'Explore Our Curricula'}>
-          <p className="my-4 md:my-6 prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto">
+          <p className="my-4 md:my-6 prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl dark:prose-invert mx-auto">
             Looking for our Curriculum Documents? We've got you covered. Head on
             over to our <Link to="/curricula/">curricula page</Link> to pick a
             grade span and get started.

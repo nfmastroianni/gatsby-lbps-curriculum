@@ -6,6 +6,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Breadcrumb from '../components/Breadcrumb'
 import Section from '../components/Section'
+import Heading from '../components/Heading'
 import { FaFilePdf, FaRegCalendarAlt } from 'react-icons/fa'
 import { HiChevronRight } from 'react-icons/hi'
 import Seo from '../components/Seo'
@@ -18,17 +19,20 @@ const ContentArea = ({
     },
   },
   path,
-  location,
+  location: { pathname },
   pageContext: { contentArea, gradeSpan },
 }) => {
   return (
     <Layout siteTitle={siteTitle} path={path}>
-      <Breadcrumb pathname={location.pathname} contentArea={contentArea} />
-      <Section>
-        <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-semibold border-b py-4  mb-4">
+      <Breadcrumb pathname={pathname} contentArea={contentArea} />
+      <Section id="curricula">
+        <Heading
+          level={2}
+          className="text-center text-xl md:text-2xl lg:text-3xl font-semibold border-b py-4 mb-4"
+        >
           {gradeSpan} • {contentArea}
-        </h2>
-        <div className=" max-w-md">
+        </Heading>
+        <div className="max-w-md">
           {!areas.length && (
             <p>No Curricula Are Published in This Content Area</p>
           )}

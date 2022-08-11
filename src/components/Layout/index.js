@@ -44,7 +44,7 @@ const Layout = ({ children, siteTitle, path }) => {
       </ul>
       <Navbar siteTitle={siteTitle} path={path} />
 
-      <main id="main-content" className="">
+      <main id="main-content" className="dark:bg-gray-900">
         {children}
       </main>
       <Footer />

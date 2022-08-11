@@ -6,7 +6,9 @@ html {
   @apply scroll-smooth;
   @apply motion-safe:scroll-auto;
 }
-
+section#curricula {
+  @apply mb-[200px];
+}
 details {
   @apply max-w-sm mx-auto my-6;
 }
@@ -24,7 +26,7 @@ details > ul {
 }
 
 details > ul > li {
-  @apply p-4 rounded text-emerald-900 text-lg hover:bg-slate-50;
+  @apply p-4 rounded text-emerald-900 dark:text-white text-lg hover:bg-slate-50 dark:hover:bg-gray-800;
 }
 
 details[open] > ul > li > svg {

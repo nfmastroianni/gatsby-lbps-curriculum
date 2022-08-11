@@ -29,7 +29,7 @@ const SpanIndex = ({
     <Layout siteTitle={siteTitle} path={path}>
       <Breadcrumb pathname={location.pathname} />
       <Section>
-        <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto divide-y">
+        <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl dark:prose-invert mx-auto divide-y">
           <Heading level={2} prose={true} className="text-center">
             {`${gradeSpan} Curricula`}
           </Heading>

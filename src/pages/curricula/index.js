@@ -28,7 +28,7 @@ const CurriculaIndex = ({
     <Layout siteTitle={siteTitle} path={path}>
       <Breadcrumb pathname={location.pathname} />
       <Section>
-        <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl divide-y mx-auto">
+        <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl  dark:prose-invert divide-y mx-auto">
           <Heading level={2} prose={true} className="text-center">
             About Our Curricula
           </Heading>
@@ -58,23 +58,26 @@ const CurriculaIndex = ({
                 i % 2 === 0 ? ` md:flex-row-reverse` : `md:flex-row`
               }`}
             >
-              <div className="flex-1 prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl">
-                <h3 className="capitalize text-center md:text-left">
+              <div className="flex-1 prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl dark:prose-invert">
+                <Heading
+                  level={3}
+                  className="capitalize text-center md:text-left"
+                >
                   {gradeSpans[i].subtitle}
-                </h3>
+                </Heading>
                 <p className="">
                   {gradeSpans[i].description ||
                     'Description missing from the data/index.js file'}
                 </p>
               </div>
-              <div className="flex-1 mx-auto text-center text-emerald-900 p-4 my-4 md:my-6 hover:text-emerald-800">
+              <div className="flex-1 mx-auto text-center text-emerald-900 dark:text-emerald-200 p-4 my-4 md:my-6 hover:text-emerald-800">
                 <Link
                   to={`/curricula/${span.toLowerCase()}/`}
-                  className="inline-block rounded border border-emerald-900 p-4 transform transition duration-300 ease-in-out hover:bg-emerald-900 hover:text-white hover:shadow-md hover:shadow-slate-900"
+                  className="inline-block rounded border border-emerald-900 dark:border-emerald-200 p-4 transform transition duration-200 ease-in-out hover:bg-emerald-900 hover:text-white hover:shadow-md hover:shadow-slate-900 dark:hover:shadow-black"
                 >
                   <HiBookOpen className=" w-32 h-32 inline" />
                   <br />
-                  <span className="text-xl">
+                  <span className="dark:hover:text-white text-xl font-light">
                     Click Here <br /> to Explore {span} Curricula
                   </span>
                 </Link>
