@@ -20,11 +20,14 @@ const GiftedAndTalented = ({ data, path, location }) => {
     <Layout siteTitle={siteTitle} path={path}>
       <Breadcrumb pathname={location.pathname} />
       <Section>
-        <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto">
-          <Heading level={2} className="text-center">
+        <div className="">
+          <Heading
+            level={2}
+            className="text-center my-4 md:my-6 lg:my-8 xl:my-10"
+          >
             Gifted &amp; Talented
           </Heading>
-          <p className="pt-4 md:pt-6 lg:pt-8 border-t">
+          <p className="py-4 md:py-6 lg:py-8 border-t dark:border-gray-500 prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto dark:prose-invert">
             The Long Branch Public School District recognizes that all children
             have unique strengths and talents. We strive to provide
             opportunities to develop the social, emotional, and academic
@@ -39,9 +42,8 @@ const GiftedAndTalented = ({ data, path, location }) => {
             url="https://nagc.org"
             image={nacgImage.childImageSharp.nagcImageData}
             imageAlt="Logo for NAGC.org"
-            className="not-prose"
           />
-          <p>
+          <p className="py-4 md:py-6 lg:py-8 prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto dark:prose-invert">
             The{' '}
             <a href="https://www.nj.gov/education/standards/gifted/#:~:text=a%20%E2%80%9Cstudent%20who%20possesses%20or%20demonstrates%20a%20high%20level%20of%20ability%20in%20one%20or%20more%20content%20areas%20when%20compared%20to%20their%20chronological%20peers%20in%20the%20school%20district%20and%20who%20require%20modifications%20of%20their%20educational%20program%20if%20they%20are%20to%20achieve%20in%20accordance%20with%20their%20capabilities.%E2%80%AF%E2%80%9D">
               accelerated learner{' '}
@@ -57,7 +59,7 @@ const GiftedAndTalented = ({ data, path, location }) => {
         </div>
       </Section>
       <Section headerText={'Overview of the Gifted & Talented Program'}>
-        <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto">
+        <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl dark:prose-invert mx-auto">
           <p>
             The Long Branch Public Schools Gifted and Talented Program in Grades
             K-5 shall be referred to as the Accelerated Learning Program (ALPs)
@@ -105,7 +107,7 @@ const GiftedAndTalented = ({ data, path, location }) => {
         </div>
       </Section>
       <Section headerText={'Identification of Gifted & Talented Students'}>
-        <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto">
+        <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl dark:prose-invert mx-auto">
           <p>
             The identification process occurs at the beginning and middle of
             each school year. However, each school reviews students' information
@@ -147,7 +149,7 @@ const GiftedAndTalented = ({ data, path, location }) => {
         </div>
       </Section>
       <Section headerText={'Equity and Access'}>
-        <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto">
+        <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl dark:prose-invert mx-auto">
           <p>
             The Long Branch Public Schools strive to provide equity and access
             to all students. In recognition of this we offer assessments that
@@ -162,7 +164,7 @@ const GiftedAndTalented = ({ data, path, location }) => {
         </div>
       </Section>
       <Section headerText={'Looking for More Information?'}>
-        <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto">
+        <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl dark:prose-invert mx-auto">
           <p>
             If you are looking for even more information on our Accelerated
             Learning Program including the procedure for filing a complaint,{' '}
