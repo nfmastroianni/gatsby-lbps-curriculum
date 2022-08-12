@@ -8,28 +8,27 @@ const DarkMode = ({ siteWrapper }) => {
     const storedTheme = localStorage.getItem('theme')
 
     if (
-      storedTheme === 'light' ||
-      (storedTheme === 'dark' &&
+      storedTheme === 'dark' ||
+      (!('theme' in localStorage) &&
         window.matchMedia('(prefers-color-scheme: dark)').matches)
     ) {
-      siteWrapper.current.classList.add(storedTheme)
-      setMode(storedTheme)
-      localStorage.setItem('theme', storedTheme)
+      siteWrapper.current.classList.add('dark')
+      setMode('dark')
+      if (!storedTheme) {
+        localStorage.setItem('theme', 'dark')
+      }
     } else {
-      setMode('light')
-      siteWrapper.current.classList.add('light')
       localStorage.setItem('theme', 'light')
+      setMode('light')
     }
   }, [mode, siteWrapper])
 
-  const switchTheme = e => {
+  const switchTheme = () => {
     if (mode === 'dark') {
-      console.log('MODE IS DARK ===> ', mode)
       setMode('light')
       localStorage.setItem('theme', 'light')
       siteWrapper.current.classList.remove('dark')
     } else {
-      console.log('MODE IS NOT DARK ===> ', mode)
       setMode('dark')
       localStorage.setItem('theme', 'dark')
       siteWrapper.current.classList.add('dark')
@@ -43,6 +42,7 @@ const DarkMode = ({ siteWrapper }) => {
           mode === 'dark' ? `opacity-0` : `opacity-100`
         }`}
       />
+
       <HiMoon
         className={`absolute top-1/2 transform -translate-y-1/2 w-6 h-6 transition duration-300 ease-in-out ${
           mode === 'light' ? `opacity-0` : `opacity-100`
