@@ -20,7 +20,10 @@ const Layout = ({ children, siteTitle, path }) => {
   }
   const siteWrapper = React.useRef(null)
   return (
-    <div ref={siteWrapper} className="flex flex-col min-h-screen space-between">
+    <div
+      ref={siteWrapper}
+      className="flex flex-col min-h-screen space-between dark:bg-gray-900"
+    >
       <ul id="nav-access" className="relative">
         <li className="">
           <button
