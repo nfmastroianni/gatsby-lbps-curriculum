@@ -38,7 +38,7 @@ const DarkMode = ({ siteWrapper }) => {
   return (
     <button className="mr-4" id="darkMode" onClick={e => switchTheme(e)}>
       <HiSun
-        className={`absolute top-1/2 transform -translate-y-1/2 w-8 h-8 transition duration-300 ease-in-out ${
+        className={`absolute top-1/2 transform -translate-y-1/2 w-6 h-6 transition duration-300 ease-in-out ${
           mode === 'dark' ? `opacity-0` : `opacity-100`
         }`}
       />
