@@ -27,8 +27,8 @@ const Navbar = ({ siteTitle, siteWrapper }) => {
   }
   return (
     <>
-      <nav className="min-h-[75px] shadow-sm  text-emerald-900 dark:bg-emerald-900 dark:text-white">
-        <div className="px-3 sm:px-6 lg:px-10 xl:px-12 py-3 sm:py-4 md:py-5 lg:py-6 flex justify-between items-center  max-w-screen-2xl mx-auto">
+      <nav className=" shadow-sm  text-emerald-900 dark:bg-emerald-900 dark:text-white py-6">
+        <div className="px-3 sm:px-6 lg:px-10 xl:px-12  flex justify-between items-center  max-w-screen-2xl mx-auto">
           {/* NAVBAR LEFT - MENU */}
           <div className="flex items-center">
             <HiMenu

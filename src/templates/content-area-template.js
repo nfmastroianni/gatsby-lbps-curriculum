@@ -30,7 +30,7 @@ const ContentArea = ({
           level={2}
           className="text-center text-xl md:text-2xl lg:text-3xl font-semibold border-b py-4 mb-4"
         >
-          {gradeSpan} • {contentArea}
+          {`${gradeSpan} • ${contentArea}`}
         </Heading>
         <div className="max-w-md">
           {!areas.length && (
