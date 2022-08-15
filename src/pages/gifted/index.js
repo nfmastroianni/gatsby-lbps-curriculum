@@ -46,8 +46,8 @@ const GiftedAndTalented = ({ data, path, location }) => {
           <p className="py-4 md:py-6 lg:py-8 prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl mx-auto dark:prose-invert">
             The{' '}
             <a href="https://www.nj.gov/education/standards/gifted/#:~:text=a%20%E2%80%9Cstudent%20who%20possesses%20or%20demonstrates%20a%20high%20level%20of%20ability%20in%20one%20or%20more%20content%20areas%20when%20compared%20to%20their%20chronological%20peers%20in%20the%20school%20district%20and%20who%20require%20modifications%20of%20their%20educational%20program%20if%20they%20are%20to%20achieve%20in%20accordance%20with%20their%20capabilities.%E2%80%AF%E2%80%9D">
-              accelerated learner{' '}
-            </a>
+              accelerated learner
+            </a>{' '}
             has needs that can be met in a multitude of ways. Essentially, a
             "continuum of services" provides administrators, teachers,
             Parent/Guardian, and students with a myriad of educational options
@@ -223,7 +223,7 @@ export function Head({
       pageTitle="Accelerated Learning Program"
       pathname={pathname}
     >
-      <title>{`Accelerated Learning Program | ${siteTitle}`}</title>
+      <title>{`Gifted & Talented Program | ${siteTitle}`}</title>
     </Seo>
   )
 }
