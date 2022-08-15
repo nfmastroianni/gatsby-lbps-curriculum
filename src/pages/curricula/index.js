@@ -19,14 +19,14 @@ const CurriculaIndex = ({
     site: { siteMetadata },
   },
   path,
-  location,
+  location: { pathname },
 }) => {
   // get the unique grade spans present in the Google Spreadsheet
   const spans = getUniqueGradeSpans(nodes)
   const { siteTitle } = siteMetadata
   return (
     <Layout siteTitle={siteTitle} path={path}>
-      <Breadcrumb pathname={location.pathname} />
+      <Breadcrumb pathname={pathname} />
       <Section>
         <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl  dark:prose-invert divide-y mx-auto">
           <Heading level={2} prose={true} className="text-center">
@@ -39,9 +39,9 @@ const CurriculaIndex = ({
               Understanding By Design
             </a>
             " framework. This framework helps enhance student learning and
-            facilitates instruction by staring with the end result in mind.
-            Below you will find information on the primary, middle, and
-            secondary school levels.
+            facilitates instruction by starting with the end result in mind.
+            Below you will find information on the elementary, middle, and high
+            school levels.
           </p>
         </div>
       </Section>
