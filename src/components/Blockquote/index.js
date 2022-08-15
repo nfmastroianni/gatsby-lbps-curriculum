@@ -35,7 +35,7 @@ const Blockquote = ({
           <GatsbyImage
             image={getImage(image)}
             alt={imageAlt ? imageAlt : ''}
-            className="rounded-full"
+            imgClassName="rounded-full"
           />
         )}
         {url ? <a href={url}>{author}</a> : { author }}
