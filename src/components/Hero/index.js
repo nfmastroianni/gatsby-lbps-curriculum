@@ -2,7 +2,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import * as React from 'react'
 import Heading from '../Heading'
 
-const Hero = () => {
+const Hero = ({ assistantTitle, officeMission, pageTitle }) => {
   return (
     <>
       <div className="grid md:grid-rows-3 md:grid-cols-5 min-h-[250px] mx-auto px-3 sm:px-6 lg:px-10 xl:px-12 py-3 sm:py-4 md:py-5 lg:py-6 max-w-screen-2xl justify-center">
@@ -18,23 +18,18 @@ const Hero = () => {
           />
         </div>
         <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl md:col-span-3 row-span-1 text-center self-center motion-safe:animate-fade-up motion-safe:md:animate-fade-left">
-          <Heading level={2}>Office of Curriculum &amp; Instruction</Heading>
+          <Heading level={2}>{pageTitle}</Heading>
         </div>
         <div className="md:col-span-3 row-span-1 motion-safe:animate-fade-up motion-safe:md:animate-fade-left">
           <p className="prose md:prose-lg lg:prose-xl xl:prose-2xl dark:prose-invert px-2 md:px-3 lg:px-4">
-            We have an important mission here at Long Branch Public Schools. We
-            strive to meet and exceed the standards set forth by the State of
-            New Jersey. In order to accomplish this, we continuously develop and
-            revise our curricula (<em>what we teach</em>). Our adminstration and
-            teacher leaders ensure best practices are followed during
-            instruction (<em>how we teach</em>).
+            {officeMission}
           </p>
         </div>
         <div className="md:col-span-2 row-span-1 p-2 mb-2 md:mb-0 self-end motion-safe:animate-fade-up motion-safe:md:animate-fade-right">
           <Heading level={3} className="text-center">
             <span>
               Nicole Esposito <br />
-              Assistant Superintendent <br /> of Curriculum &amp; Instruction
+              {assistantTitle}
             </span>
           </Heading>
         </div>

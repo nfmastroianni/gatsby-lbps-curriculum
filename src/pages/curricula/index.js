@@ -33,8 +33,8 @@ const CurriculaIndex = ({
             About Our Curricula
           </Heading>
           <p className="py-4">
-            In order to ensure our students receive a rigorous, our curricula
-            are developed using the "
+            In order to ensure our students receive a rigorous education, our
+            curricula are developed using the "
             <a href="https://files.ascd.org/staticfiles/ascd/pdf/siteASCD/publications/UbD_WhitePaper0312.pdf">
               Understanding By Design
             </a>

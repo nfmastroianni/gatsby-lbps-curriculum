@@ -9,10 +9,10 @@
  *   - gatsbyImageData
  */
 const getDepartmentImages = (images, departments) => {
-  images.forEach(({ childImageSharp, name }) => {
+  images.forEach(({ gatsbyImageData, parent: { name } }) => {
     departments.forEach(dep => {
       if (dep.image === name) {
-        dep.gatsbyImageData = childImageSharp.gatsbyImageData
+        dep.gatsbyImageData = gatsbyImageData
       }
     })
   })

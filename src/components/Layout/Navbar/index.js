@@ -1,14 +1,18 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import { Link as TransLink, useI18next } from 'gatsby-plugin-react-i18next'
 import { StaticImage } from 'gatsby-plugin-image'
 import { HiChevronRight, HiMenu, HiX } from 'react-icons/hi'
+import { GoTriangleUp } from 'react-icons/go'
 import { mainMenu } from '../../../../data'
 import Heading from '../../Heading'
 import DarkMode from '../DarkMode'
 
 const Navbar = ({ siteTitle, siteWrapper }) => {
   const [isOpen, setIsOpen] = React.useState(false)
+  const { languages, originalPath, t, i18n } = useI18next()
+  console.log('RESOLVED LANGUAGE ====> ', i18n.resolvedLanguage)
   React.useEffect(() => {
     if (isOpen) {
       document.body.style.position = 'fixed'
@@ -27,7 +31,7 @@ const Navbar = ({ siteTitle, siteWrapper }) => {
   }
   return (
     <>
-      <nav className=" shadow-sm  text-emerald-900 dark:bg-emerald-900 dark:text-white py-6">
+      <nav className="shadow-sm  text-emerald-900 dark:bg-emerald-900 dark:text-white pt-6">
         <div className="px-3 sm:px-6 lg:px-10 xl:px-12  flex justify-between items-center  max-w-screen-2xl mx-auto">
           {/* NAVBAR LEFT - MENU */}
           <div className="flex items-center">
@@ -54,7 +58,7 @@ const Navbar = ({ siteTitle, siteWrapper }) => {
               level={1}
               className="sm:text-xl md:text-2xl lg:text-3xl font-semibold dark:text-white"
             >
-              {siteTitle}
+              {t('siteTitle')}
             </Heading>
             <p className="prose prose-sm dark:prose-invert">
               Long Branch Public Schools
@@ -76,6 +80,26 @@ const Navbar = ({ siteTitle, siteWrapper }) => {
             </Link>
           </div>
         </div>
+        <ul className="grid grid-cols-3 gap-x-4  px-4 mt-4">
+          {languages.map(lng => {
+            return (
+              <li className="grid grid-rows-2 text-center" key={lng}>
+                <TransLink to={originalPath} language={lng}>
+                  {lng === 'en-US'
+                    ? 'English'
+                    : lng === 'es'
+                    ? 'Español'
+                    : 'Português'}
+                </TransLink>
+                {i18n.resolvedLanguage === lng && (
+                  <span className="text-center animate-pulse">
+                    <GoTriangleUp className="inline" />
+                  </span>
+                )}
+              </li>
+            )
+          })}
+        </ul>
       </nav>
       <div
         className={`absolute top-0 z-10 bg-slate-900 bg-opacity-20 h-screen w-full ${

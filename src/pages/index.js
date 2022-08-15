@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
+import { useTranslation } from 'gatsby-plugin-react-i18next'
 import PropTypes from 'prop-types'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
@@ -17,16 +18,21 @@ const Home = ({
     site: {
       siteMetadata: { siteTitle },
     },
-    allFile: { nodes },
+    allImageSharp: { nodes },
+    locales,
   },
   path,
 }) => {
   getDepartmentImages(nodes, departments)
-
+  const { t } = useTranslation()
   return (
     <>
       <Layout siteTitle={siteTitle} path={path}>
-        <Hero />
+        <Hero
+          pageTitle={t('pageTitle')}
+          assistantTitle={t('assistantTitle')}
+          officeMission={t('officeMission')}
+        />
         <Section headerText="Learn More About Us">
           <Heading
             level={3}
@@ -151,8 +157,9 @@ export function Head({
 }) {
   const { siteTitle } = siteMetadata
   const { pathname } = location
+
   return (
-    <Seo {...siteMetadata} pageTitle="Home" pathname={pathname}>
+    <Seo {...siteMetadata} pageTitle={'Home'} pathname={pathname}>
       <title>{`Home | ${siteTitle}`}</title>
     </Seo>
   )
@@ -169,7 +176,7 @@ Home.propTypes = {
         siteImage: PropTypes.string.isRequired,
       }),
     }).isRequired,
-    allFile: PropTypes.shape({
+    allImageSharp: PropTypes.shape({
       nodes: PropTypes.array.isRequired,
     }).isRequired,
   }).isRequired,
@@ -180,7 +187,7 @@ Home.propTypes = {
 export default Home
 
 export const query = graphql`
-  query HomeQuery {
+  query HomeQuery($language: String!) {
     site {
       siteMetadata {
         siteTitle
@@ -189,17 +196,30 @@ export const query = graphql`
         siteImage
       }
     }
-    allFile {
+    allImageSharp {
       nodes {
-        childImageSharp {
-          gatsbyImageData(
-            layout: CONSTRAINED
-            placeholder: BLURRED
-            width: 180
-            height: 180
-          )
+        gatsbyImageData(
+          layout: CONSTRAINED
+          placeholder: BLURRED
+          width: 180
+          height: 180
+        )
+        parent {
+          ... on File {
+            name
+          }
         }
-        name
+      }
+    }
+    locales: allLocale(
+      filter: { ns: { in: ["common", "home"] }, language: { eq: $language } }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
       }
     }
   }

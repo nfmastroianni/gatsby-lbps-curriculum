@@ -1,8 +1,4 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
+const { languages, defaultLanguage } = require('./languages')
 const path = require('path')
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -25,7 +21,23 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
+    {
+      resolve: 'gatsby-plugin-react-i18next',
+      options: {
+        languages,
+        defaultLanguage,
+        siteUrl: 'https://dancing-lamington-049ad7.netlify.app/',
+        i18nextOptions: {
+          // debug: true,
+          fallbackLng: defaultLanguage,
+          supportedLngs: languages,
+          defaultNS: 'common',
+          interpolation: {
+            escapeValue: false, // not needed for react as it escapes by default
+          },
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -47,11 +59,19 @@ module.exports = {
       __key: 'images',
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/locales`,
+        name: `locale`,
+      },
+    },
+    {
       resolve: `gatsby-source-google-spreadsheets`,
       options: {
         spreadsheetId: process.env.SPREADSHEET_ID,
         credentials: keys,
       },
     },
+    `gatsby-transformer-sharp`,
   ],
 }
