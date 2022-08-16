@@ -1,8 +1,10 @@
 import { StaticImage } from 'gatsby-plugin-image'
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next'
 import * as React from 'react'
 import Heading from '../Heading'
 
-const Hero = ({ assistantTitle, officeMission, pageTitle }) => {
+const Hero = () => {
+  const { t } = useTranslation()
   return (
     <>
       <div className="grid md:grid-rows-3 md:grid-cols-5 min-h-[250px] mx-auto px-3 sm:px-6 lg:px-10 xl:px-12 py-3 sm:py-4 md:py-5 lg:py-6 max-w-screen-2xl justify-center">
@@ -18,18 +20,18 @@ const Hero = ({ assistantTitle, officeMission, pageTitle }) => {
           />
         </div>
         <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl md:col-span-3 row-span-1 text-center self-center motion-safe:animate-fade-up motion-safe:md:animate-fade-left">
-          <Heading level={2}>{pageTitle}</Heading>
+          <Heading level={2}>{t('pageTitle')}</Heading>
         </div>
         <div className="md:col-span-3 row-span-1 motion-safe:animate-fade-up motion-safe:md:animate-fade-left">
           <p className="prose md:prose-lg lg:prose-xl xl:prose-2xl dark:prose-invert px-2 md:px-3 lg:px-4">
-            {officeMission}
+            <Trans i18nKey={'officeMission'} />
           </p>
         </div>
         <div className="md:col-span-2 row-span-1 p-2 mb-2 md:mb-0 self-end motion-safe:animate-fade-up motion-safe:md:animate-fade-right">
           <Heading level={3} className="text-center">
             <span>
               Nicole Esposito <br />
-              {assistantTitle}
+              {t('assistantTitle')}
             </span>
           </Heading>
         </div>
@@ -38,7 +40,7 @@ const Hero = ({ assistantTitle, officeMission, pageTitle }) => {
             level={4}
             className="dark:text-emerald-200 text-center pb-2 border-b dark:border-b-gray-600"
           >
-            Office Information
+            {t('officeInformation')}
           </Heading>
           <p className="prose prose-sm dark:prose-invert text-center italic my-4 md:my-2 mx-auto">
             540 Broadway <br />
@@ -48,7 +50,7 @@ const Hero = ({ assistantTitle, officeMission, pageTitle }) => {
             Maria Graziano
           </Heading>
           <ul className="text-center prose prose-sm dark:prose-invert mx-auto">
-            <li>Confidential Secretary</li>
+            <li>{t('secretaryTitle')}</li>
             <li>732-571-2868 ext. 40240</li>
           </ul>
         </div>

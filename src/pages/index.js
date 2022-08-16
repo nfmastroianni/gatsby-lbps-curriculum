@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { useTranslation } from 'gatsby-plugin-react-i18next'
+import { useTranslation, useI18next } from 'gatsby-plugin-react-i18next'
 import PropTypes from 'prop-types'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
@@ -25,14 +25,12 @@ const Home = ({
 }) => {
   getDepartmentImages(nodes, departments)
   const { t } = useTranslation()
+  const { i18n } = useI18next()
+  console.log(i18n.resolvedLanguage)
   return (
     <>
       <Layout siteTitle={siteTitle} path={path}>
-        <Hero
-          pageTitle={t('pageTitle')}
-          assistantTitle={t('assistantTitle')}
-          officeMission={t('officeMission')}
-        />
+        <Hero />
         <Section headerText="Learn More About Us">
           <Heading
             level={3}
@@ -41,10 +39,7 @@ const Home = ({
             Departments
           </Heading>
           <p className="prose md:prose-lg dark:prose-invert mx-auto my-4 md:my-6 lg:my-8">
-            Check out some of the departments here at Long Branch Public
-            Schools. Each department has at least one supervisor and a master
-            teacher for each building. These professionals help ensure best
-            practices are followed when using their curriculum.
+            {t('departmentsIntro')}
           </p>
           <ul className="divide-y">
             {departments.map(
@@ -74,7 +69,7 @@ const Home = ({
                         {title}
                       </Heading>
                       <p className="prose md:prose-lg lg:prose-xl dark:prose-invert mx-auto mb-6">
-                        {description}
+                        {t(description)}
                       </p>
                       <ButtonLink url={departmentUrl} type={departmentUrlType}>
                         {`Visit the ${title} site`}

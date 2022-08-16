@@ -7,8 +7,7 @@ const departments = [
     departmentUrl:
       'https://sites.google.com/longbranch.k12.nj.us/office-of-bilingual-education/home',
     departmentUrlType: 'external',
-    description:
-      'Bilingual / ESL: Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae facere dolor commodi ea eum natus debitis! Facilis, voluptatum ipsum! Cupiditate dolore, ipsa a expedita sit ex placeat assumenda suscipit minima!',
+    description: 'bilingualDescription',
     image: 'bilingual_logo',
   },
   {
@@ -18,8 +17,7 @@ const departments = [
     curriculaUrlType: '',
     departmentUrl: 'https://www.longbranch.k12.nj.us/Domain/466',
     departmentUrlType: 'external',
-    description:
-      'Health & Physical Education: Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae facere dolor commodi ea eum natus debitis! Facilis, voluptatum ipsum! Cupiditate dolore, ipsa a expedita sit ex placeat assumenda suscipit minima!',
+    description: 'hpeDescription',
     image: 'pe_logo',
   },
   {
@@ -29,8 +27,7 @@ const departments = [
     curriculaUrlType: '',
     departmentUrl: 'https://www.longbranch.k12.nj.us/Domain/89',
     departmentUrlType: 'external',
-    description:
-      'Special Education: Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae facere dolor commodi ea eum natus debitis! Facilis, voluptatum ipsum! Cupiditate dolore, ipsa a expedita sit ex placeat assumenda suscipit minima!',
+    description: 'spedDescription',
     image: 'sped_logo',
   },
 ]

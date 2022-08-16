@@ -9,10 +9,9 @@ import { mainMenu } from '../../../../data'
 import Heading from '../../Heading'
 import DarkMode from '../DarkMode'
 
-const Navbar = ({ siteTitle, siteWrapper }) => {
+const Navbar = ({ siteWrapper }) => {
   const [isOpen, setIsOpen] = React.useState(false)
   const { languages, originalPath, t, i18n } = useI18next()
-  console.log('RESOLVED LANGUAGE ====> ', i18n.resolvedLanguage)
   React.useEffect(() => {
     if (isOpen) {
       document.body.style.position = 'fixed'
@@ -61,7 +60,7 @@ const Navbar = ({ siteTitle, siteWrapper }) => {
               {t('siteTitle')}
             </Heading>
             <p className="prose prose-sm dark:prose-invert">
-              Long Branch Public Schools
+              {t('districtName')}
             </p>
           </div>
           {/* NAVBAR RIGHT - LOGO */}
@@ -85,7 +84,7 @@ const Navbar = ({ siteTitle, siteWrapper }) => {
             return (
               <li className="grid grid-rows-2 text-center" key={lng}>
                 <TransLink to={originalPath} language={lng}>
-                  {lng === 'en-US'
+                  {lng === 'en'
                     ? 'English'
                     : lng === 'es'
                     ? 'Español'
