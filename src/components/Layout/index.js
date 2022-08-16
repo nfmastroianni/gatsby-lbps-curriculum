@@ -12,7 +12,7 @@ const Layout = ({ children, siteTitle, path }) => {
   const { i18n } = useI18next()
   React.useEffect(() => {
     document.documentElement.lang = i18n.language
-  }, [])
+  }, [i18n.language])
 
   React.useEffect(() => {
     window.addEventListener('scroll', toggleToTop)

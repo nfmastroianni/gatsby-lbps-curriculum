@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { useTranslation, useI18next } from 'gatsby-plugin-react-i18next'
+import { useTranslation } from 'gatsby-plugin-react-i18next'
 import PropTypes from 'prop-types'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
@@ -25,8 +25,6 @@ const Home = ({
 }) => {
   getDepartmentImages(nodes, departments)
   const { t } = useTranslation()
-  const { i18n } = useI18next()
-  console.log(i18n.resolvedLanguage)
   return (
     <>
       <Layout siteTitle={siteTitle} path={path}>

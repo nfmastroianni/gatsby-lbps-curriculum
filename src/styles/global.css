@@ -26,7 +26,7 @@ details > ul {
 }
 
 details > ul > li {
-  @apply p-4 rounded text-emerald-900 dark:text-white text-lg hover:bg-slate-50 dark:hover:bg-gray-800;
+  @apply p-4 rounded text-emerald-900 dark:text-white text-lg hover:bg-gray-50 dark:hover:bg-gray-800;
 }
 
 details[open] > ul > li > svg {

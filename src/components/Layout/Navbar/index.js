@@ -1,17 +1,17 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { Link as TransLink, useI18next } from 'gatsby-plugin-react-i18next'
+import { useI18next } from 'gatsby-plugin-react-i18next'
 import { StaticImage } from 'gatsby-plugin-image'
 import { HiChevronRight, HiMenu, HiX } from 'react-icons/hi'
-import { GoTriangleUp } from 'react-icons/go'
 import { mainMenu } from '../../../../data'
 import Heading from '../../Heading'
-import DarkMode from '../DarkMode'
+import SiteSettings from '../SiteSettings'
 
 const Navbar = ({ siteWrapper }) => {
   const [isOpen, setIsOpen] = React.useState(false)
-  const { languages, originalPath, t, i18n } = useI18next()
+  const [settingsOpen, setSettingsOpen] = React.useState(false)
+  const { t } = useI18next()
   React.useEffect(() => {
     if (isOpen) {
       document.body.style.position = 'fixed'
@@ -30,7 +30,7 @@ const Navbar = ({ siteWrapper }) => {
   }
   return (
     <>
-      <nav className="shadow-sm  text-emerald-900 dark:bg-emerald-900 dark:text-white pt-6">
+      <nav className="shadow-sm text-emerald-900 dark:bg-emerald-900 dark:text-white py-6">
         <div className="px-3 sm:px-6 lg:px-10 xl:px-12  flex justify-between items-center  max-w-screen-2xl mx-auto">
           {/* NAVBAR LEFT - MENU */}
           <div className="flex items-center">
@@ -64,8 +64,12 @@ const Navbar = ({ siteWrapper }) => {
             </p>
           </div>
           {/* NAVBAR RIGHT - LOGO */}
-          <div className="grid grid-cols-2 gap-x-4 relative">
-            <DarkMode siteWrapper={siteWrapper} />
+          <div className="grid sm:grid-cols-2 gap-x-4 relative items-center">
+            <SiteSettings
+              settingsOpen={settingsOpen}
+              setSettingsOpen={setSettingsOpen}
+              siteWrapper={siteWrapper}
+            />
             <Link to="/" className="hidden sm:block">
               <StaticImage
                 src="../../../images/lbps_logo.png"
@@ -79,7 +83,7 @@ const Navbar = ({ siteWrapper }) => {
             </Link>
           </div>
         </div>
-        <ul className="grid grid-cols-3 gap-x-4  px-4 mt-4">
+        {/* <ul className="grid grid-cols-3 gap-x-4  px-4 mt-4">
           {languages.map(lng => {
             return (
               <li className="grid grid-rows-2 text-center" key={lng}>
@@ -98,7 +102,7 @@ const Navbar = ({ siteWrapper }) => {
               </li>
             )
           })}
-        </ul>
+        </ul> */}
       </nav>
       <div
         className={`absolute top-0 z-10 bg-slate-900 bg-opacity-20 h-screen w-full ${
