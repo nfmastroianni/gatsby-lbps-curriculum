@@ -1,5 +1,11 @@
 {
   "siteTitle": "Currículo e Instrução",
   "districtName": "Escolas Públicas Long Branch",
-  "home": "capa principal"
+  "home": "capa principal",
+  "curricula": "curricula",
+  "English Language Arts": "literatura e Língua Inglesa",
+  "Mathematics": "Matemática",
+  "Science": "Ciência",
+  "Social Studies": "Estudos Sociais",
+  "World Language": "Idiomas do mundo"
 }

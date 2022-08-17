@@ -12,6 +12,7 @@ const Breadcrumb = ({ pathname, contentArea }) => {
     crumbs.shift()
     pieces.shift()
   }
+  console.log(contentArea)
   crumbs.unshift('')
   pieces.unshift('')
   return (
@@ -39,8 +40,8 @@ const Breadcrumb = ({ pathname, contentArea }) => {
               >
                 <Link to={`/${crumb}/`} className="capitalize">
                   {i + 1 === crumbs.length && contentArea
-                    ? contentArea
-                    : pieces[i]}
+                    ? t(contentArea)
+                    : t(pieces[i])}
                 </Link>
                 {i < crumbs.length - 1 && (
                   <HiChevronRight className="inline mx-1 sm:mx-4 w-4 h-4 text-emerald-900 dark:text-emerald-200" />
