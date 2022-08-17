@@ -1,6 +1,7 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next'
 // import components
 import Layout from '../../components/Layout'
 import Breadcrumb from '../../components/Breadcrumb'
@@ -24,30 +25,33 @@ const CurriculaIndex = ({
   // get the unique grade spans present in the Google Spreadsheet
   const spans = getUniqueGradeSpans(nodes)
   const { siteTitle } = siteMetadata
+  const { t } = useTranslation()
   return (
     <Layout siteTitle={siteTitle} path={path}>
       <Breadcrumb pathname={pathname} />
       <Section>
         <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl  dark:prose-invert divide-y mx-auto">
           <Heading level={2} prose={true} className="text-center">
-            About Our Curricula
+            {t('pageTitle')}
           </Heading>
           <p className="py-4">
-            In order to ensure our students receive a rigorous education, our
-            curricula are developed using the "
-            <a href="https://files.ascd.org/staticfiles/ascd/pdf/siteASCD/publications/UbD_WhitePaper0312.pdf">
-              Understanding By Design
-            </a>
-            " framework. This framework helps enhance student learning and
-            facilitates instruction by starting with the end result in mind.
-            Below you will find information on the elementary, middle, and high
-            school levels.
+            <Trans i18nKey={'pageIntro'}>
+              In order to ensure our students receive a rigorous education, our
+              curricula are developed using the "
+              <a href="https://files.ascd.org/staticfiles/ascd/pdf/siteASCD/publications/UbD_WhitePaper0312.pdf">
+                Understanding By Design
+              </a>
+              " framework. This framework helps enhance student learning and
+              facilitates instruction by starting with the end result in mind.
+              Below you will find information on the elementary, middle, and
+              high school levels.
+            </Trans>
           </p>
         </div>
       </Section>
       {!spans.length && (
         <p className="mx-auto text-center text-3xl font-bold">
-          We have not yet published any curricula. Please check back again soon.
+          {t('notPublished')}
         </p>
       )}
       {spans.map((span, i) => {
@@ -63,10 +67,10 @@ const CurriculaIndex = ({
                   level={3}
                   className="capitalize text-center md:text-left"
                 >
-                  {gradeSpans[i].subtitle}
+                  {t(gradeSpans[i].subtitle)}
                 </Heading>
                 <p className="">
-                  {gradeSpans[i].description ||
+                  {t(gradeSpans[i].description) ||
                     'Description missing from the data/index.js file'}
                 </p>
               </div>
@@ -77,9 +81,11 @@ const CurriculaIndex = ({
                 >
                   <HiBookOpen className=" w-32 h-32 inline" />
                   <br />
-                  <span className="dark:hover:text-white text-xl font-light">
-                    Click Here <br /> to Explore {span} Curricula
-                  </span>
+                  <Trans i18nKey={'exploreBtn'}>
+                    <span className="dark:hover:text-white text-xl font-light">
+                      Click Here <br /> to Explore {{ span }} Curricula
+                    </span>
+                  </Trans>
                 </Link>
               </div>
             </div>
@@ -113,7 +119,7 @@ export const Head = ({
 }
 export default CurriculaIndex
 export const data = graphql`
-  query CurriculaQuery {
+  query CurriculaQuery($language: String!) {
     allGoogleCurriculaSheet(filter: { published: { eq: true } }) {
       nodes {
         gradeSpan
@@ -125,6 +131,20 @@ export const data = graphql`
         siteUrl
         siteDescription
         siteImage
+      }
+    }
+    locales: allLocale(
+      filter: {
+        ns: { in: ["common", "curricula-index"] }
+        language: { eq: $language }
+      }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
       }
     }
   }

@@ -1,11 +1,17 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import { useI18next } from 'gatsby-plugin-react-i18next'
 import { HiChevronRight } from 'react-icons/hi'
 import { getBreadcrumbs } from '../../../utils'
 
 const Breadcrumb = ({ pathname, contentArea }) => {
   const { crumbs, pieces } = getBreadcrumbs(pathname)
+  const { i18n, t } = useI18next()
+  if (i18n.language !== 'en') {
+    crumbs.shift()
+    pieces.shift()
+  }
   crumbs.unshift('')
   pieces.unshift('')
   return (
@@ -20,7 +26,7 @@ const Breadcrumb = ({ pathname, contentArea }) => {
                   className="hover:text-emerald-700 dark:hover:text-emerald-100"
                 >
                   <Link to="/" className="capitalize">
-                    Home
+                    {t('home')}
                   </Link>
                   <HiChevronRight className="inline mx-1 sm:mx-4 w-4 h-4 text-emerald-900 dark:text-emerald-200" />
                 </li>
