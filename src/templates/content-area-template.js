@@ -109,7 +109,11 @@ export const Head = ({
 export default ContentArea
 
 export const data = graphql`
-  query contentAreaQuery($gradeSpan: String, $contentArea: String) {
+  query contentAreaQuery(
+    $gradeSpan: String
+    $contentArea: String
+    $language: String!
+  ) {
     site {
       siteMetadata {
         siteTitle
@@ -134,6 +138,20 @@ export const data = graphql`
         id
         calendar: pacingCalendar__PDF_Link
         published
+      }
+    }
+    locales: allLocale(
+      filter: {
+        ns: { in: ["common", "curricula-subject"] }
+        language: { eq: $language }
+      }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
       }
     }
   }

@@ -19,7 +19,6 @@ const Home = ({
       siteMetadata: { siteTitle },
     },
     allImageSharp: { nodes },
-    locales,
   },
   path,
 }) => {

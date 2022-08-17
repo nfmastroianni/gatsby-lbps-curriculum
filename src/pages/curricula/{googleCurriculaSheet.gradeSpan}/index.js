@@ -106,7 +106,7 @@ export const Head = ({ data, pageContext, location }) => {
 export default SpanIndex
 
 export const data = graphql`
-  query SpanQuery($gradeSpan: String) {
+  query SpanQuery($gradeSpan: String, $language: String!) {
     allGoogleCurriculaSheet(
       filter: { gradeSpan: { eq: $gradeSpan }, published: { eq: true } }
     ) {
@@ -120,6 +120,20 @@ export const data = graphql`
         siteDescription
         siteUrl
         siteImage
+      }
+    }
+    locales: allLocale(
+      filter: {
+        ns: { in: ["common", "curricula-gradespan"] }
+        language: { eq: $language }
+      }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
       }
     }
   }

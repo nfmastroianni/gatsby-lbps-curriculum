@@ -28,6 +28,7 @@ const Navbar = ({ siteWrapper }) => {
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
+  let linkProps = !isOpen ? { tabIndex: -1 } : {}
   return (
     <>
       <nav className="shadow-sm text-emerald-900 dark:bg-emerald-900 dark:text-white py-6">
@@ -110,6 +111,7 @@ const Navbar = ({ siteWrapper }) => {
         }`}
         onClick={toggleMenu}
         onKeyDown={toggleMenu}
+        onBlur={() => toggleMenu(false)}
         role="button"
         tabIndex={-1}
       >
@@ -123,7 +125,7 @@ const Navbar = ({ siteWrapper }) => {
             : ' -translate-x-[260px] md:-translate-x-[400px]'
         }`}
       >
-        <button onClick={toggleMenu}>
+        <button onClick={toggleMenu} {...linkProps}>
           <HiX className="absolute top-4 right-4 text-slate-300 w-6 h-6" />
           <span className="sr-only">Close navigation menu</span>
         </button>
@@ -144,11 +146,12 @@ const Navbar = ({ siteWrapper }) => {
                     to={item.url}
                     className="text-2xl"
                     activeClassName="active-page"
+                    {...linkProps}
                   >
                     {item.linkText}
                   </Link>
                 ) : (
-                  <a href={item.url} className="text-2xl">
+                  <a href={item.url} className="text-2xl" {...linkProps}>
                     {item.linkText}
                   </a>
                 )}
@@ -163,11 +166,14 @@ const Navbar = ({ siteWrapper }) => {
                               to={subItem.url}
                               className="text-2xl"
                               activeClassName="active-page"
+                              {...linkProps}
                             >
                               {subItem.linkText}
                             </Link>
                           ) : (
-                            <a href={subItem.url}>{subItem.linkText}</a>
+                            <a href={subItem.url} {...linkProps}>
+                              {subItem.linkText}
+                            </a>
                           )}
                         </li>
                       )

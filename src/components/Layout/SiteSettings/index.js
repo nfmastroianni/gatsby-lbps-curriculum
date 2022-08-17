@@ -12,6 +12,8 @@ const SiteSettings = ({
 }) => {
   const [mode, setMode] = React.useState(null)
 
+  const settingsBtn = React.useRef(null)
+
   React.useEffect(() => {
     const storedTheme = localStorage.getItem('theme')
     if (
@@ -43,17 +45,27 @@ const SiteSettings = ({
   const { languages, originalPath, i18n } = useI18next()
 
   return (
-    <div className="relative" role="button" tabIndex={0} onBlur={handleBlur}>
+    <div
+      className="relative"
+      role="button"
+      tabIndex={0}
+      onBlur={handleBlur}
+      onFocus={() => {
+        settingsBtn.current.focus()
+      }}
+    >
       <button
+        ref={settingsBtn}
         onClick={() => {
           setSettingsOpen(true)
         }}
       >
         <HiAdjustments className="w-8 h-8" />
+        <span className="sr-only">Activate Settings Menu</span>
       </button>
       {settingsOpen && (
         <div
-          className={`z-10 bg-white dark:bg-gray-800 bg-opacity-95 shadow dark:shadow-emerald-900 origin-top-left absolute right-0 border dark:border-emerald-700 rounded w-56 ${
+          className={`z-10 bg-white dark:bg-gray-800 shadow dark:shadow-emerald-900 origin-top-left absolute right-0 border dark:border-emerald-700 rounded w-56 ${
             settingsOpen ? ` animate-fade-in` : ``
           } ${className}`}
         >
