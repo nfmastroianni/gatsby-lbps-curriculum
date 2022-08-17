@@ -141,10 +141,7 @@ export const data = graphql`
       }
     }
     locales: allLocale(
-      filter: {
-        ns: { in: ["common", "curricula-subject"] }
-        language: { eq: $language }
-      }
+      filter: { ns: { in: ["common"] }, language: { eq: $language } }
     ) {
       edges {
         node {
