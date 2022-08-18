@@ -33,7 +33,7 @@ const SpanIndex = ({
       <Section>
         <div className="prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl dark:prose-invert mx-auto divide-y">
           <Heading level={2} prose={true} className="text-center capitalize">
-            {`${gradeSpan} ${t('curricula')}`}
+            {`${gradeSpan} ${t('subjects')}`}
           </Heading>
           <p className="py-4 ">{t('pageIntro', { gradeSpan })}</p>
         </div>
@@ -89,6 +89,7 @@ export const Head = ({ data, pageContext, location }) => {
   } = data
   const { gradeSpan } = pageContext
   const { pathname } = location
+  const { t } = useI18next()
 
   return (
     <Seo
@@ -96,7 +97,9 @@ export const Head = ({ data, pageContext, location }) => {
       pageTitle={`${gradeSpan} Subjects`}
       pathname={pathname}
     >
-      <title>{`${gradeSpan} Subjects | ${siteMetadata.siteTitle}`}</title>
+      <title>{`${gradeSpan} ${t('Subjects')} | ${
+        siteMetadata.siteTitle
+      }`}</title>
     </Seo>
   )
 }

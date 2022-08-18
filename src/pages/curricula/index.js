@@ -56,7 +56,7 @@ const CurriculaIndex = ({
       )}
       {spans.map((span, i) => {
         return (
-          <Section key={span} headerText={`${span} Curriculum`}>
+          <Section key={span} headerText={`${span} ${t('curriculum')}`}>
             <div
               className={`my-4 md:my-6 max-w-screen-2xl mx-auto flex flex-col justify-center items-center ${
                 i % 2 === 0 ? ` md:flex-row-reverse` : `md:flex-row`

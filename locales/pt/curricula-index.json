@@ -1,12 +1,12 @@
 {
-  "pageTitle": "About Our Curricula",
-  "pageIntro": "In order to ensure our students receive a rigorous education, our curricula are developed using the \"<1>Understanding By Design</1>\" framework. This framework helps enhance student learning and facilitates instruction by starting with the end result in mind. Below you will find information on the elementary, middle, and high school levels.",
-  "notPublished": "We have not yet published any curricula. Please check back again soon.",
-  "k5Description": "During their time in our elementary program, students will experience steady successes as they strive to meet the challenges put before them. Courses at this level offer students a wide array of topics to help them grow and discover interests. Check out the curricula for K-5 courses by clicking the button nearby.",
-  "k5Subtitle": "Students in Grades K-5",
-  "sixEightDescription": "Middle school is an important period of growth for students as they prepare for secondary school. Courses at the middle school level are able to offer deeper explorations of content and skills than those experienced in the primary grades.",
-  "sixEightSubtitle": "Students in Grades 6-8",
-  "nineTwelveDescription": "High school courses seek to refine and strengthen key academic and life skills initially developed in primary and middle school. After completing their course work at Long Branch High School, our students are ready for their next step whether in college or career.",
-  "nineTwelveSubtitle": "Students in Grades 9-12",
-  "exploreBtn": "Click Here <br /> to Explore {{span}} Curricula"
+  "pageTitle": "Conheça nossos currículos",
+  "pageIntro": "Para garantir que nossos alunos recebam uma educação rigorosa, nossos currículos são desenvolvidos usando a estrutura \"<1>Entendendo por design</1>\". Essa estrutura ajuda a melhorar o aprendizado do aluno e facilita a instrução, começando com o resultado final em mente. Abaixo você encontrará informações sobre os níveis de ensino fundamental, médio e médio.",
+  "notPublished": "Ainda não publicamos nenhum currículo. Por favor, verifique novamente em breve.",
+  "k5Description": "Durante seu tempo em nosso programa elementar, os alunos experimentarão sucessos constantes à medida que se esforçam para enfrentar os desafios colocados diante deles. Os cursos neste nível oferecem aos alunos uma ampla gama de tópicos para ajudá-los a crescer e descobrir interesses. Confira os currículos dos cursos K-5 clicando no botão próximo.",
+  "k5Subtitle": "Alunos nas séries K-5",
+  "sixEightDescription": "O ensino médio é um período importante de crescimento para os alunos que se preparam para o ensino médio. Os cursos no nível do ensino médio são capazes de oferecer explorações mais profundas de conteúdo e habilidades do que aquelas experimentadas nas séries primárias.",
+  "sixEightSubtitle": "Alunos nas séries 6-8",
+  "nineTwelveDescription": "Os cursos do ensino médio buscam refinar e fortalecer as principais habilidades acadêmicas e de vida desenvolvidas inicialmente no ensino fundamental e médio. Depois de concluir o trabalho do curso na Long Branch High School, nossos alunos estão prontos para o próximo passo, seja na faculdade ou na carreira.",
+  "nineTwelveSubtitle": "Alunos nas séries 9-12",
+  "exploreBtn": "Clique aqui <br /> para explorar os currículos {{span}}"
 }

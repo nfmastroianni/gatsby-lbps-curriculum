@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export default function SectionHeader({ bg, headerText }) {
+export default function SectionHeader({ bg, headerText, className }) {
   return (
     <header
       className={`${
@@ -9,7 +9,9 @@ export default function SectionHeader({ bg, headerText }) {
           : ` bg-gradient-to-bl from-emerald-700 via-emerald-900 to-emerald-800`
       } py-4 md:py-2`}
     >
-      <h2 className="text-center text-white text-xl md:text-2xl lg:text-3xl md:py-2 lg:py-3 tracking-wide font-semibold">
+      <h2
+        className={`text-center text-white text-xl md:text-2xl lg:text-3xl md:py-2 lg:py-3 tracking-wide font-semibold capitalize ${className}`}
+      >
         {headerText}
       </h2>
     </header>
