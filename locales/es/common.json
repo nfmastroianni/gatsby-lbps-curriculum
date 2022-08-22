@@ -8,9 +8,17 @@
   "subjects": "temas",
   "Subject": "Tema",
   "Subjects": "Temas",
+  "k5Curricula": "planes de estudio de K-5 ",
+  "sixEightCurricula": "planes de estudio de 6-8 ",
+  "nineTwelveCurricula": "planes de estudio de 9-12",
+  "giftedAndTalented": "Dotados y Talentosos",
+  "districtHomepage": "Página de inicio del distrito",
   "English Language Arts": "la Lengua y Literatura Inglesa",
   "Mathematics": "Matemáticas",
   "Science": "Ciencias",
   "Social Studies": "Ciencias Sociales",
-  "World Language": "Idiomas del mundo"
+  "World Language": "Idiomas del mundo",
+  "bilingualTitle": "Bilingüe/ESL e Idiomas del Mundo",
+  "physedTitle": "Salud y Educación Física",
+  "spedTitle": "Educación Especial y Servicios"
 }

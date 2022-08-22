@@ -8,9 +8,18 @@
   "subjects": "subjects",
   "Subject": "Subject",
   "Subjects": "Subjects",
+  "k5Curricula": "K-5 Curricula",
+  "sixEightCurricula": "6-8 Curricula",
+  "nineTwelveCurricula": "9-12 Curricula",
+  "giftedAndTalented": "Gifted & Talented",
+  "districtHomepage": "District Homepage",
   "English Language Arts": "English Language Arts",
   "Mathematics": "Mathematics",
   "Science": "Science",
   "Social Studies": "Social Studies",
-  "World Language": "World Language"
+  "World Language": "World Language",
+  "bilingualTitle": "Bilingual / ESL, & World Languages",
+  "physedTitle": "Health & Physical Education",
+  "spedTitle": "Special Education & Services",
+  "closeMenu": "Close Menu"
 }

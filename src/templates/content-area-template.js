@@ -2,6 +2,7 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import { useI18next } from 'gatsby-plugin-react-i18next'
 // import components
 import Layout from '../components/Layout'
 import Breadcrumb from '../components/Breadcrumb'
@@ -22,20 +23,19 @@ const ContentArea = ({
   location: { pathname },
   pageContext: { contentArea, gradeSpan },
 }) => {
+  const { t } = useI18next()
   return (
     <Layout siteTitle={siteTitle} path={path}>
       <Breadcrumb pathname={pathname} contentArea={contentArea} />
       <Section id="curricula">
         <Heading
           level={2}
-          className="text-center text-xl md:text-2xl lg:text-3xl font-semibold border-b py-4 mb-4"
+          className="text-center text-xl md:text-2xl lg:text-3xl font-semibold border-b py-4 mb-4 capitalize"
         >
-          {`${gradeSpan} • ${contentArea}`}
+          {`${gradeSpan} • ${t(contentArea)}`}
         </Heading>
         <div className="max-w-md">
-          {!areas.length && (
-            <p>No Curricula Are Published in This Content Area</p>
-          )}
+          {!areas.length && <p>{t('notPublished')}</p>}
           {areas.map(({ title, guide, id, calendar }) => {
             return (
               <details key={id}>
@@ -49,7 +49,9 @@ const ContentArea = ({
                       <li>
                         <a href={guide}>
                           <FaFilePdf className="curriculum-icon w-8 h-8" />
-                          <span>Curriculum guide</span>
+                          <span className="capitalize">
+                            {t('curriculumGuide')}
+                          </span>
                         </a>
                       </li>
                     )}
@@ -57,16 +59,15 @@ const ContentArea = ({
                       <li>
                         <a href={calendar}>
                           <FaRegCalendarAlt className="curriculum-icon w-8 h-8" />
-                          Pacing calendar
+                          <span className="capitalize">
+                            {t('pacingCalendar')}
+                          </span>
                         </a>
                       </li>
                     )}
                   </ul>
                 ) : (
-                  <p>
-                    No curriculum documents are available for this course at
-                    this time. Please check back later.
-                  </p>
+                  <p>{t('noDocuments')}</p>
                 )}
               </details>
             )
@@ -141,7 +142,10 @@ export const data = graphql`
       }
     }
     locales: allLocale(
-      filter: { ns: { in: ["common"] }, language: { eq: $language } }
+      filter: {
+        ns: { in: ["common", "content-area"] }
+        language: { eq: $language }
+      }
     ) {
       edges {
         node {

@@ -4,8 +4,14 @@
   "officeMission": "Temos uma missão importante aqui nas Escolas Públicas de Long Branch. Nós nos esforçamos para atender e exceder os padrões estabelecidos pelo Estado de New Jersey. Para conseguir isso, desenvolvemos e revisamos continuamente nossos currículos (<i>o que ensinamos</i>). Nossos líderes de administração e professores garantem que as melhores práticas sejam seguidas durante a instrução (<i>como ensinamos</i>).",
   "officeInformation": "Informações do escritório",
   "secretaryTitle": "Secretário Confidencial",
+  "learnMore": "Aprenda más acerca de nosotros",
+  "departments": "departamentos",
   "departmentsIntro": "Confira alguns dos departamentos aqui em Long Branch Public Schools. Cada departamento tem pelo menos um supervisor e um professor mestre para cada edifício. Esses profissionais ajudam a garantir que as melhores práticas sejam seguidas ao usar seu currículo.",
   "bilingualDescription": "A filosofia do Departamento de Idiomas Bilíngue, ESL e Mundial abrange nossa comunidade culturalmente diversificada e oferece oportunidades inclusivas e equitativas para nossos alunos. NOSSO Programa é um Programa de Inglês como Segundo Idioma de Alta Intensidade Os alunos recebem dois ou mais períodos de instrução de ESL por dia.",
   "hpeDescription": "Nossa aula abrangente de saúde e educação física fornece conteúdo e instrução intrapessoal para aprimorar as habilidades motoras, a compreensão e a interação por meio de atividade física e condicionamento físico. Nosso currículo de Educação Física nas séries K-12 fornece aos alunos as ferramentas necessárias para se desenvolverem física, social, emocional e mentalmente.",
-  "spedDescription": ""
+  "spedDescription": "O Departamento de Educação Especial e Serviços Relacionados da Long Branch School oferece programas que atendem às necessidades acadêmicas, sociais, emocionais, comportamentais e físicas de cada aluno com base nas necessidades individuais. Por meio de fortes relacionamentos e colaboração das partes interessadas, o distrito promoverá e apoiará essas habilidades essenciais de desenvolvimento, acadêmicas e de vida para preparar os alunos para o sucesso nos caminhos que escolherem seguir.",
+  "visitButton": "Visite o site do {{title}}",
+  "exploreCurricula": "Explore nossos currículos",
+  "exploreMessage": "Procurando por nossos Documentos Curriculares? Acesse nossa <1>página de currículos</1> para escolher uma série e começar.",
+  "exploreButton": "Escolha um intervalo de notas"
 }

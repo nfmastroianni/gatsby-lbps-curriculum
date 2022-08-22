@@ -1,7 +1,7 @@
 const departments = [
   {
     id: 'bilingualesl',
-    title: 'Bilingual / ESL, & World Languages',
+    title: 'bilingualTitle',
     curriculaUrl: '',
     curriculaUrlType: '',
     departmentUrl:
@@ -12,7 +12,7 @@ const departments = [
   },
   {
     id: 'physicaleducation',
-    title: 'Health & Physical Education',
+    title: 'physedTitle',
     curriculaUrl: '',
     curriculaUrlType: '',
     departmentUrl: 'https://www.longbranch.k12.nj.us/Domain/466',
@@ -22,7 +22,7 @@ const departments = [
   },
   {
     id: 'specialeducation',
-    title: 'Special Education & Services',
+    title: 'spedTitle',
     curriculaUrl: '',
     curriculaUrlType: '',
     departmentUrl: 'https://www.longbranch.k12.nj.us/Domain/89',
@@ -61,19 +61,19 @@ const mainMenu = [
     id: 2,
   },
   {
-    linkText: 'Curricula',
+    linkText: 'curricula',
     url: '/curricula/',
     type: 'internal',
     id: 3,
     subMenu: [
       {
-        linkText: 'K-5 Curricula',
+        linkText: 'k5Curricula',
         url: '/curricula/k-5/',
         type: 'internal',
         id: 'c1',
       },
       // {
-      //   linkText: '6-8 Curricula',
+      //   linkText: 'sixEightCurricula',
       //   url: '/curricula/6-8/',
       //   type: 'internal',
       //   id: 'c2',
@@ -87,13 +87,13 @@ const mainMenu = [
     ],
   },
   {
-    linkText: 'Gifted & Talented',
+    linkText: 'giftedAndTalented',
     url: '/gifted/',
     type: 'internal',
     id: 4,
   },
   {
-    linkText: 'District Homepage',
+    linkText: 'districtHomepage',
     url: 'https://www.longbranch.k12.nj.us',
     type: 'external',
     id: 1,

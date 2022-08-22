@@ -12,6 +12,21 @@ const Navbar = ({ siteWrapper }) => {
   const [isOpen, setIsOpen] = React.useState(false)
   const [settingsOpen, setSettingsOpen] = React.useState(false)
   const { t } = useI18next()
+  const curriculumHome = React.useRef(null)
+  const settingsBtn = React.useRef(null)
+  const toggleMenu = e => {
+    if (e.type === 'keydown' && e.code === 'Escape') {
+      setIsOpen(false)
+    } else if (
+      (e.type === 'keydown' && e.code === 'Space') ||
+      e.code === 'Enter'
+    ) {
+      setIsOpen(true)
+      curriculumHome.current.focus()
+    } else if (e.type === 'click') {
+      setIsOpen(!isOpen)
+    }
+  }
   React.useEffect(() => {
     if (isOpen) {
       document.body.style.position = 'fixed'
@@ -25,33 +40,22 @@ const Navbar = ({ siteWrapper }) => {
       window.scrollTo(0, parseInt(scrollY || '0') * -1)
     }
   }, [isOpen])
-  const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+
   let linkProps = !isOpen ? { tabIndex: -1 } : {}
   return (
     <>
       <nav className="shadow-sm text-emerald-900 dark:bg-emerald-900 dark:text-white py-6">
         <div className="px-3 sm:px-6 lg:px-10 xl:px-12  flex justify-between items-center  max-w-screen-2xl mx-auto">
           {/* NAVBAR LEFT - MENU */}
-          <div className="flex items-center">
-            <HiMenu
-              className="w-6 h-6 sm:w-7 sm:h-7 mr-3 cursor-pointer"
-              onClick={toggleMenu}
-              onKeyDown={toggleMenu}
-              role="button"
-              tabIndex={0}
-            />
-            <span
-              className="hidden sm:inline cursor-pointer"
-              onClick={toggleMenu}
-              onKeyDown={toggleMenu}
-              role="button"
-              tabIndex={0}
-            >
-              Menu
-            </span>
-          </div>
+          <button
+            onClick={toggleMenu}
+            onKeyDown={toggleMenu}
+            className="flex items-center"
+          >
+            <HiMenu className="w-6 h-6 sm:w-7 sm:h-7 mr-3" />
+            <span className="hidden sm:inline">Menu</span>
+          </button>
+
           {/* NAVBAR CENTER - TITLE */}
           <div className="absolute left-1/2 transform -translate-x-1/2 text-center">
             <Heading
@@ -70,6 +74,7 @@ const Navbar = ({ siteWrapper }) => {
               settingsOpen={settingsOpen}
               setSettingsOpen={setSettingsOpen}
               siteWrapper={siteWrapper}
+              ref={settingsBtn}
             />
             <Link to="/" className="hidden sm:block">
               <StaticImage
@@ -111,7 +116,6 @@ const Navbar = ({ siteWrapper }) => {
         }`}
         onClick={toggleMenu}
         onKeyDown={toggleMenu}
-        onBlur={() => toggleMenu(false)}
         role="button"
         tabIndex={-1}
       >
@@ -129,14 +133,16 @@ const Navbar = ({ siteWrapper }) => {
           <HiX className="absolute top-4 right-4 text-slate-300 w-6 h-6" />
           <span className="sr-only">Close navigation menu</span>
         </button>
-        <StaticImage
-          src="../../../images/curriculum_logo.png"
-          width={120}
-          height={120}
-          layout="constrained"
-          placeholder="tracedSVG"
-          alt="The Office of Curriculum and Instruction Logo"
-        />
+        <Link to="/" ref={curriculumHome}>
+          <StaticImage
+            src="../../../images/curriculum_logo.png"
+            width={120}
+            height={120}
+            layout="constrained"
+            placeholder="tracedSVG"
+            alt="The Office of Curriculum and Instruction Logo"
+          />
+        </Link>
         <ul className="">
           {mainMenu.map(item => {
             return (
@@ -144,15 +150,15 @@ const Navbar = ({ siteWrapper }) => {
                 {item.type === 'internal' ? (
                   <Link
                     to={item.url}
-                    className="text-2xl"
-                    activeClassName="active-page"
+                    className="text-2xl capitalize"
+                    activeClassName="active-page "
                     {...linkProps}
                   >
-                    {item.linkText}
+                    {t(item.linkText)}
                   </Link>
                 ) : (
                   <a href={item.url} className="text-2xl" {...linkProps}>
-                    {item.linkText}
+                    {t(item.linkText)}
                   </a>
                 )}
                 {item.subMenu && (
@@ -168,11 +174,11 @@ const Navbar = ({ siteWrapper }) => {
                               activeClassName="active-page"
                               {...linkProps}
                             >
-                              {subItem.linkText}
+                              {t(subItem.linkText)}
                             </Link>
                           ) : (
                             <a href={subItem.url} {...linkProps}>
-                              {subItem.linkText}
+                              {t(subItem.linkText)}
                             </a>
                           )}
                         </li>
@@ -183,6 +189,20 @@ const Navbar = ({ siteWrapper }) => {
               </li>
             )
           })}
+          <li>
+            <button
+              onClick={() => {
+                console.log(settingsBtn)
+                settingsBtn.current.focus()
+              }}
+              onBlur={() => {
+                settingsBtn.current.focus()
+                setIsOpen(false)
+              }}
+            >
+              {t('closeMenu')}
+            </button>
+          </li>
         </ul>
       </aside>
     </>

@@ -12,7 +12,6 @@ const Breadcrumb = ({ pathname, contentArea }) => {
     crumbs.shift()
     pieces.shift()
   }
-  console.log(contentArea)
   crumbs.unshift('')
   pieces.unshift('')
   return (

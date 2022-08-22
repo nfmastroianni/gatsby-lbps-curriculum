@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { useTranslation } from 'gatsby-plugin-react-i18next'
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next'
 import PropTypes from 'prop-types'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
@@ -28,12 +28,12 @@ const Home = ({
     <>
       <Layout siteTitle={siteTitle} path={path}>
         <Hero />
-        <Section headerText="Learn More About Us">
+        <Section headerText={t('learnMore')}>
           <Heading
             level={3}
-            className="text-2xl md:text-3xl lg:text-4xl font-light text-center my-2 md:my-4 lg:my-6"
+            className="text-2xl md:text-3xl lg:text-4xl font-light text-center my-2 md:my-4 lg:my-6 capitalize"
           >
-            Departments
+            {t('departments')}
           </Heading>
           <p className="prose md:prose-lg dark:prose-invert mx-auto my-4 md:my-6 lg:my-8">
             {t('departmentsIntro')}
@@ -63,13 +63,16 @@ const Home = ({
                         level={4}
                         className="text-xl md:text-2xl lg:text-3xl font-light text-center my-2 md:my-4 lg:my-6"
                       >
-                        {title}
+                        {t(title)}
                       </Heading>
                       <p className="prose md:prose-lg lg:prose-xl dark:prose-invert mx-auto mb-6">
                         {t(description)}
                       </p>
                       <ButtonLink url={departmentUrl} type={departmentUrlType}>
-                        {`Visit the ${title} site`}
+                        <Trans i18nKey={'visitButton'}>
+                          Visit the {{ title: t(title) }} site
+                        </Trans>
+                        {/* {`Visit the ${title} site`} */}
                       </ButtonLink>
                     </div>
                   </li>
@@ -78,18 +81,20 @@ const Home = ({
             )}
           </ul>
         </Section>
-        <Section headerText={'Explore Our Curricula'}>
+        <Section headerText={t('exploreCurricula')}>
           <p className="my-4 md:my-6 prose prose-emerald md:prose-lg lg:prose-xl xl:prose-2xl dark:prose-invert mx-auto">
-            Looking for our Curriculum Documents? We've got you covered. Head on
-            over to our <Link to="/curricula/">curricula page</Link> to pick a
-            grade span and get started.
+            <Trans i18nKey={'exploreMessage'}>
+              Looking for our Curriculum Documents? We've got you covered. Head
+              on over to our <Link to="/curricula/">curricula page</Link> to
+              pick a grade span and get started.
+            </Trans>
           </p>
           <ButtonLink
             url="/curricula/"
-            className="w-[300px] my-8"
+            className="w-[390px] my-8"
             type={'internal'}
           >
-            Pick a Grade Span
+            {t('exploreButton')}
           </ButtonLink>
         </Section>
         {/* <Section headerText="How We Teach">
