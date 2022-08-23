@@ -42,6 +42,7 @@ const SiteSettings = React.forwardRef(
         className="relative"
         id="settingsMenu"
         onBlur={handleBlur}
+        onTouchEnd={handleBlur}
         role="button"
       >
         <button
