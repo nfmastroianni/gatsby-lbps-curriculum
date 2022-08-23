@@ -42,7 +42,6 @@ const SiteSettings = React.forwardRef(
         className="relative"
         id="settingsMenu"
         onBlur={handleBlur}
-        onTouchEnd={handleBlur}
         role="button"
       >
         <button
@@ -50,6 +49,7 @@ const SiteSettings = React.forwardRef(
           ref={ref}
           onClick={() => {
             setSettingsOpen(!settingsOpen)
+            ref.current.focus()
           }}
         >
           <HiAdjustments className="w-8 h-8" />
@@ -82,12 +82,7 @@ const SiteSettings = React.forwardRef(
                         i18n.resolvedLanguage !== lng ? `invisible` : ``
                       }`}
                     />
-                    <TransLink
-                      to={originalPath}
-                      language={lng}
-                      role="menuitem"
-                      area-m
-                    >
+                    <TransLink to={originalPath} language={lng} role="menuitem">
                       {lng === 'en'
                         ? 'English'
                         : lng === 'es'
