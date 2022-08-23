@@ -89,38 +89,18 @@ const Navbar = ({ siteWrapper }) => {
             </Link>
           </div>
         </div>
-        {/* <ul className="grid grid-cols-3 gap-x-4  px-4 mt-4">
-          {languages.map(lng => {
-            return (
-              <li className="grid grid-rows-2 text-center" key={lng}>
-                <TransLink to={originalPath} language={lng}>
-                  {lng === 'en'
-                    ? 'English'
-                    : lng === 'es'
-                    ? 'Español'
-                    : 'Português'}
-                </TransLink>
-                {i18n.resolvedLanguage === lng && (
-                  <span className="text-center animate-pulse">
-                    <GoTriangleUp className="inline" />
-                  </span>
-                )}
-              </li>
-            )
-          })}
-        </ul> */}
       </nav>
-      <div
-        className={`absolute top-0 z-10 bg-slate-900 bg-opacity-20 h-screen w-full ${
-          !isOpen ? 'hidden' : ''
-        }`}
-        onClick={toggleMenu}
-        onKeyDown={toggleMenu}
-        role="button"
-        tabIndex={-1}
-      >
-        <span className="sr-only">close menu</span>
-      </div>
+      {isOpen && (
+        <div
+          className={`absolute top-0 z-10 bg-slate-900 bg-opacity-20 h-screen w-full `}
+          onClick={toggleMenu}
+          onKeyDown={toggleMenu}
+          role="button"
+          tabIndex={-1}
+        >
+          <span className="sr-only">close menu</span>
+        </div>
+      )}
       {/* OFF-CANVAS / SIDE DRAWER MENU */}
       <aside
         className={`absolute top-0 z-10 h-screen  bg-gradient-to-b from-emerald-800 via-emerald-900 to-gray-900 transition ease-in-out duration-500 w-[260px] md:w-[400px] flex flex-col justify-center items-center text-white ${
@@ -133,7 +113,7 @@ const Navbar = ({ siteWrapper }) => {
           <HiX className="absolute top-4 right-4 text-slate-300 w-6 h-6" />
           <span className="sr-only">Close navigation menu</span>
         </button>
-        <Link to="/" ref={curriculumHome}>
+        <Link to="/" ref={curriculumHome} {...linkProps}>
           <StaticImage
             src="../../../images/curriculum_logo.png"
             width={120}
@@ -192,13 +172,13 @@ const Navbar = ({ siteWrapper }) => {
           <li>
             <button
               onClick={() => {
-                console.log(settingsBtn)
                 settingsBtn.current.focus()
               }}
               onBlur={() => {
                 settingsBtn.current.focus()
                 setIsOpen(false)
               }}
+              {...linkProps}
             >
               {t('closeMenu')}
             </button>

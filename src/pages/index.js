@@ -91,7 +91,7 @@ const Home = ({
           </p>
           <ButtonLink
             url="/curricula/"
-            className="w-[390px] my-8"
+            className="sm:w-[390px] my-8"
             type={'internal'}
           >
             {t('exploreButton')}

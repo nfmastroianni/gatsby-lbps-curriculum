@@ -7,6 +7,33 @@ import DarkMode from './DarkMode'
 const SiteSettings = React.forwardRef(
   ({ settingsOpen, setSettingsOpen, siteWrapper, className }, ref) => {
     const [mode, setMode] = React.useState(null)
+    const settingsMenu = React.useRef(null)
+
+    function useOutsideAlerter(ref) {
+      React.useEffect(() => {
+        /**
+         * Alert if clicked on outside of element
+         */
+        function handleClickOutside(event) {
+          if (
+            ref.current &&
+            !ref.current.contains(event.target) &&
+            settingsOpen
+          ) {
+            setSettingsOpen(false)
+          }
+        }
+        // Bind the event listener
+        document.addEventListener('mousedown', handleClickOutside)
+
+        return () => {
+          // Unbind the event listener on clean up
+          document.removeEventListener('mousedown', handleClickOutside)
+        }
+      }, [ref])
+    }
+
+    useOutsideAlerter(settingsMenu)
 
     React.useEffect(() => {
       const storedTheme = localStorage.getItem('theme')
@@ -28,7 +55,6 @@ const SiteSettings = React.forwardRef(
 
     const handleBlur = e => {
       const currentTarget = e.currentTarget
-
       requestAnimationFrame(() => {
         if (!currentTarget.contains(document.activeElement)) {
           setSettingsOpen(false)
@@ -41,17 +67,15 @@ const SiteSettings = React.forwardRef(
     return (
       <div
         className="relative"
-        role="button"
-        tabIndex={0}
+        ref={settingsMenu}
+        id="settingsMenu"
         onBlur={handleBlur}
-        onFocus={() => {
-          ref.current.focus()
-        }}
+        role="menu"
       >
         <button
           ref={ref}
           onClick={() => {
-            setSettingsOpen(true)
+            setSettingsOpen(!settingsOpen)
           }}
         >
           <HiAdjustments className="w-8 h-8" />
@@ -59,11 +83,11 @@ const SiteSettings = React.forwardRef(
         </button>
         {settingsOpen && (
           <div
-            className={`z-10 bg-white dark:bg-gray-800 shadow dark:shadow-emerald-900 origin-top-left absolute right-0 border dark:border-emerald-700 rounded w-56 ${
+            className={`z-10 bg-white dark:bg-gray-800 shadow dark:shadow-emerald-900 absolute top-6 right-0 border dark:border-emerald-700 rounded mt-2 w-56 ${
               settingsOpen ? ` animate-fade-in` : ``
             } ${className}`}
           >
-            <ul className="divide-y dark:divide-gray-500 ">
+            <ul className="divide-y dark:divide-gray-500">
               <li className="p-4 relative hover:bg-gray-50 dark:hover:bg-gray-900 rounded-t">
                 <DarkMode
                   siteWrapper={siteWrapper}
@@ -90,10 +114,10 @@ const SiteSettings = React.forwardRef(
                         : 'Português'}
                     </TransLink>
                     {/* {i18n.resolvedLanguage === lng && (
-                    <span className="text-center animate-pulse">
-                      <GoTriangleUp className="inline" />
-                    </span>
-                  )} */}
+                      <span className="text-center animate-pulse">
+                        <GoTriangleUp className="inline" />
+                      </span>
+                    )} */}
                   </li>
                 )
               })}
