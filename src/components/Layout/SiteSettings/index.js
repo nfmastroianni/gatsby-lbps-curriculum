@@ -7,33 +7,6 @@ import DarkMode from './DarkMode'
 const SiteSettings = React.forwardRef(
   ({ settingsOpen, setSettingsOpen, siteWrapper, className }, ref) => {
     const [mode, setMode] = React.useState(null)
-    const settingsMenu = React.useRef(null)
-
-    function useOutsideAlerter(ref) {
-      React.useEffect(() => {
-        /**
-         * Alert if clicked on outside of element
-         */
-        function handleClickOutside(event) {
-          if (
-            ref.current &&
-            !ref.current.contains(event.target) &&
-            settingsOpen
-          ) {
-            setSettingsOpen(false)
-          }
-        }
-        // Bind the event listener
-        document.addEventListener('mousedown', handleClickOutside)
-
-        return () => {
-          // Unbind the event listener on clean up
-          document.removeEventListener('mousedown', handleClickOutside)
-        }
-      }, [ref])
-    }
-
-    useOutsideAlerter(settingsMenu)
 
     React.useEffect(() => {
       const storedTheme = localStorage.getItem('theme')
@@ -67,12 +40,12 @@ const SiteSettings = React.forwardRef(
     return (
       <div
         className="relative"
-        ref={settingsMenu}
         id="settingsMenu"
         onBlur={handleBlur}
-        role="menu"
+        role="button"
       >
         <button
+          id="settingsBtn"
           ref={ref}
           onClick={() => {
             setSettingsOpen(!settingsOpen)
@@ -86,6 +59,8 @@ const SiteSettings = React.forwardRef(
             className={`z-10 bg-white dark:bg-gray-800 shadow dark:shadow-emerald-900 absolute top-6 right-0 border dark:border-emerald-700 rounded mt-2 w-56 ${
               settingsOpen ? ` animate-fade-in` : ``
             } ${className}`}
+            role="menu"
+            aria-labelledby="settingsBtn"
           >
             <ul className="divide-y dark:divide-gray-500">
               <li className="p-4 relative hover:bg-gray-50 dark:hover:bg-gray-900 rounded-t">
@@ -106,7 +81,12 @@ const SiteSettings = React.forwardRef(
                         i18n.resolvedLanguage !== lng ? `invisible` : ``
                       }`}
                     />
-                    <TransLink to={originalPath} language={lng}>
+                    <TransLink
+                      to={originalPath}
+                      language={lng}
+                      role="menuitem"
+                      area-m
+                    >
                       {lng === 'en'
                         ? 'English'
                         : lng === 'es'

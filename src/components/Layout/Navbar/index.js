@@ -53,7 +53,7 @@ const Navbar = ({ siteWrapper }) => {
             className="flex items-center"
           >
             <HiMenu className="w-6 h-6 sm:w-7 sm:h-7 mr-3" />
-            <span className="hidden sm:inline">Menu</span>
+            <span className="sr-only sm:not-sr-only sm:inline">Menu</span>
           </button>
 
           {/* NAVBAR CENTER - TITLE */}

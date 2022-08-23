@@ -19,6 +19,7 @@ const DarkMode = ({ siteWrapper, className, mode, setMode }) => {
       className={` ${className} w-full grid grid-cols-2 items-center`}
       id="darkMode"
       onClick={e => switchTheme(e)}
+      role="menuitem"
     >
       {mode === 'light' && (
         <HiSun
