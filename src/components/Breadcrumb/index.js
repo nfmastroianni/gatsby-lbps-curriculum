@@ -17,7 +17,7 @@ const Breadcrumb = ({ pathname, contentArea }) => {
   return (
     <>
       <nav className="max-w-screen-2xl px-3 sm:px-6 lg:px-10 xl:px-12 py-3 sm:py-4 md:py-5 lg:py-6 mx-auto">
-        <ul className="flex my-4 text-xs md:text-lg lg:text-xl text-emerald-900 dark:text-emerald-200 font-light">
+        <ul className="flex flex-wrap my-4 text-xs md:text-lg lg:text-xl text-emerald-900 dark:text-emerald-200 font-light gap-y-4">
           {crumbs.map((crumb, i) => {
             if (i === 0) {
               return (
