@@ -72,12 +72,12 @@ const mainMenu = [
         type: 'internal',
         id: 'c1',
       },
-      // {
-      //   linkText: 'sixEightCurricula',
-      //   url: '/curricula/6-8/',
-      //   type: 'internal',
-      //   id: 'c2',
-      // },
+      {
+        linkText: 'sixEightCurricula',
+        url: '/curricula/6-8/',
+        type: 'internal',
+        id: 'c2',
+      },
       // {
       //   linkText: '9-12 Curricula',
       //   url: '/curricula/9-12/',
