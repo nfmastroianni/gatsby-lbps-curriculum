@@ -8,7 +8,7 @@ import Layout from '../components/Layout'
 import Breadcrumb from '../components/Breadcrumb'
 import Section from '../components/Section'
 import Heading from '../components/Heading'
-import { FaFilePdf, FaRegCalendarAlt } from 'react-icons/fa'
+import { FaFilePdf, FaPaperclip, FaRegCalendarAlt } from 'react-icons/fa'
 import { HiChevronRight } from 'react-icons/hi'
 import Seo from '../components/Seo'
 
@@ -36,7 +36,7 @@ const ContentArea = ({
         </Heading>
         <div className="max-w-md">
           {!areas.length && <p>{t('notPublished')}</p>}
-          {areas.map(({ title, guide, id, calendar }) => {
+          {areas.map(({ title, guide, id, calendar, eslAppendix }) => {
             return (
               <details key={id}>
                 <summary>
@@ -62,6 +62,14 @@ const ContentArea = ({
                           <span className="capitalize">
                             {t('pacingCalendar')}
                           </span>
+                        </a>
+                      </li>
+                    )}
+                    {eslAppendix && (
+                      <li>
+                        <a href={eslAppendix}>
+                          <FaPaperclip className="curriculum-icon w-8 h-8" />
+                          <span className="capitalize">{t('eslAppendix')}</span>
                         </a>
                       </li>
                     )}
@@ -139,6 +147,7 @@ export const data = graphql`
         id
         calendar: pacingCalendar__PDF_Link
         published
+        eslAppendix: eSLAppendex__PDF_Link
       }
     }
     locales: allLocale(
